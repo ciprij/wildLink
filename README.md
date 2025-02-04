@@ -15,3 +15,5 @@ This repository is for the enterprise java programming individual project.
 
 
 ### Project Progress
+
+#### [Time Log](timeLog.md)
