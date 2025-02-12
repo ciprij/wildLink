@@ -18,8 +18,9 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 - [User stories](userStories.md)
 - [Screen design](Screens.md)
 
-### Project Plan
+### [Project Plan](projectPlan.md)
 
 ### Project Progress
 
-#### [Time Log](timeLog.md)
+- [Weekly Reflection](weeklyReflection.md)
+- [Time Log](timeLog.md)
