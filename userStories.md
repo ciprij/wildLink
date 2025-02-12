@@ -1,4 +1,4 @@
-# User Stories
+# *User Stories*
 
 ## User Registration & Authentication 
 ### Sign Up*
