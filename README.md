@@ -15,8 +15,8 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 
 ### Design
 
-##### [User stories](userStories.md)
-##### Screen design
+[User stories](userStories.md)
+[Screen design]
 
 ### Project Plan
 
