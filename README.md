@@ -1,4 +1,4 @@
-# Jake Cipri - Individual Project - WildLink
+# *Jake Cipri - Individual Project - WildLink*
 
 This repository is for the enterprise java programming individual project.
 
@@ -12,6 +12,35 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 
 ### Project Technologies/Techniques
 
+* Security/Authentication
+  * AWS Cognito
+* Database
+  * MySQL 8.x
+* ORM Framework
+  * Hibernate Version TBD
+* Dependency Management
+  * Maven
+* Web Services consumed using Java
+  * TBD 
+* CSS 
+  * Bootstrap or Materialize 
+* Data Validation
+  * Bootstrap Validator for front end
+  * Explore Hibernate Validator?
+* Logging
+  * Log4J2
+* Hosting
+  * AWS
+* Tech I'd like to explore as part of this work
+  * CI tools in AWS
+  * Materialize
+  * Google Maps API
+  * Hibernate Validator
+  * Hibernate Search
+* Project Lombok
+* Unit Testing
+  * JUnit tests to cover all testable logic
+* IDE: IntelliJ IDEA
 
 ### Design
 
