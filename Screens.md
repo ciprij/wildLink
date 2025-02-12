@@ -1,7 +1,5 @@
 # *Screen Design*
 
----
-
 ### Home/Activity feed page
 
 ---
