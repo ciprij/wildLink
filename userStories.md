@@ -86,4 +86,5 @@ As an **admin**, I want to **review and remove inappropriate content**, so that 
 
 As an **admin**, I want to **ban or suspend users who violate community guidelines**, so that the platform maintains a positive environment.  
 
+---
 *Denotes MVP
