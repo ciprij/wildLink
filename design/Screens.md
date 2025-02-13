@@ -14,28 +14,36 @@
 
 ### Sign up/Create account page
 
+![Sign Up Page](wireframes/signUp.png)
+
 ---
 
 ### Sign-in page
 
-![Sign in page](wireframes/signIn.png)
+![Sign In Page](wireframes/signIn.png)
 
 ---
 
 ### View account page
 
+![View Account Page](wireframes/viewProfile.png)
+
 ---
 
 ### Edit account page
+
+![Edit Profile Page](wireframes/editProfile.png)
 
 ---
 
 ### Search for users page
 
-![User Search](wireframes/userSearch.png)
+![User Search Page](wireframes/userSearch.png)
 
 ---
 
 ### Admin Dashboard page
+
+![Admin Dashboard Page](wireframes/adminDashboard.png)
 
 ---
