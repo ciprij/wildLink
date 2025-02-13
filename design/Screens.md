@@ -2,9 +2,13 @@
 
 ### Home/Activity feed page
 
+![Home Page](wireframes/homePage.png)
+
 ---
 
 ### Create a post page
+
+![New Post Page](wireframes/newPostPage.png)
 
 ---
 
@@ -13,6 +17,8 @@
 ---
 
 ### Sign-in page
+
+![Sign in page](wireframes/signIn.png)
 
 ---
 
@@ -25,6 +31,8 @@
 ---
 
 ### Search for users page
+
+![User Search](wireframes/userSearch.png)
 
 ---
 
