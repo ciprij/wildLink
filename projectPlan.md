@@ -37,7 +37,7 @@
 - [ ] Create Users.java (model)
 - [ ] Create UsersServlet.java (controller)
 - [ ] Create userSignup.jsp (view)
-- [ ] Create UserDAO.java (DAO)
+- [ ] Create UsersDAO.java (DAO)
 - [ ] Setup Hibernate in environment
 - [ ] Create a test database and tables
 - [ ] Time log / weekly reflection
