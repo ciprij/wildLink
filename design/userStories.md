@@ -34,11 +34,11 @@ As a **user**, I want to **upload a profile picture**, so that my profile is eas
 
 ## Community & Social Features 
 
-### Search for Users*
+### Search for edu.matc.entity.Users*
 
 As a **user**, I want to **search for and connect with other outdoor enthusiasts**, so that I can expand my network.  
 
-### Follow Users
+### Follow edu.matc.entity.Users
 
 As a **user**, I want to **follow other users and see their posts**, so that I can stay updated on their adventures.  
 

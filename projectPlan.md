@@ -34,7 +34,7 @@
 
 #### Focus on getting user registration/sign-up completed and working with database
 
-- [ ] Create Users.java (model)
+- [ ] Create edu.matc.entity.Users.java (model)
 - [ ] Create UsersServlet.java (controller)
 - [ ] Create userSignup.jsp (view)
 - [ ] Create UsersDAO.java (DAO)
