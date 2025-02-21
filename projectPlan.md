@@ -37,7 +37,7 @@
 - [ ] Create edu.matc.entity.Users.java (model)
 - [ ] Create UsersServlet.java (controller)
 - [ ] Create userSignup.jsp (view)
-- [ ] Create UsersDAO.java (DAO)
+- [ ] Create edu.matc.persistence.UsersDAO.java (DAO)
 - [ ] Setup Hibernate in environment
 - [ ] Create a test database and tables
 - [ ] Time log / weekly reflection
