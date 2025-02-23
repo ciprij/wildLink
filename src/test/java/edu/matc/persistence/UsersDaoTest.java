@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.utilities.Database;
 import edu.matc.entity.Users;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,10 @@ public class UsersDaoTest {
     @BeforeEach
     public void setUp() {
 
+        Database database = Database.getInstance();
+        database.runSQL("cleandb.sql");
         usersDao = new UsersDao();
-        // Add some to repopulate the table
+
     }
 
     @Test
