@@ -61,7 +61,7 @@ public class UsersDao {
      */
     public int insertUsers(Users users) {
 
-        int id = 1;
+        int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(users);
@@ -83,7 +83,6 @@ public class UsersDao {
         Transaction transaction = session.beginTransaction();
         session.delete(users);
         transaction.commit();
-
         session.close();
 
     }

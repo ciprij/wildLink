@@ -8,10 +8,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+/**
+ * The type Users dao test.
+ */
 public class UsersDaoTest {
 
+    /**
+     * The Users dao.
+     */
     UsersDao usersDao;
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     public void setUp() {
 
@@ -21,6 +30,9 @@ public class UsersDaoTest {
 
     }
 
+    /**
+     * Gets by id.
+     */
     @Test
     public void getById() {
 
@@ -34,6 +46,9 @@ public class UsersDaoTest {
 
     }
 
+    /**
+     * Update.
+     */
     @Test
     public void update() {
 
@@ -56,11 +71,19 @@ public class UsersDaoTest {
 
     }
 
+    /**
+     * Insert.
+     */
     @Test
     public void insert() {
 
-        Users retrievedUser = new Users(2, "Jane",
-                "Smith", "JSmith", "456", "jsmith@madisoncollege.edu");
+        Users retrievedUser = new Users();
+        retrievedUser.setUsername("JSmith");
+        retrievedUser.setFirst_name("Jane");
+        retrievedUser.setLast_name("Smith");
+        retrievedUser.setPassword("456");
+        retrievedUser.setEmail("jsmith@madisoncollege.edu");
+
         int insertedUserId = usersDao.insertUsers(retrievedUser);
         Assertions.assertNotEquals(0, insertedUserId);
 
@@ -74,6 +97,9 @@ public class UsersDaoTest {
 
     }
 
+    /**
+     * Delete.
+     */
     @Test
     public void delete() {
 
@@ -82,6 +108,9 @@ public class UsersDaoTest {
 
     }
 
+    /**
+     * Gets all.
+     */
     @Test
     public void getAll() {
 
