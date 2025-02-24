@@ -8,6 +8,7 @@ import org.apache.logging.log4j.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.util.List;
 
@@ -42,10 +43,12 @@ public class UsersDao {
      *
      * @param users the users
      */
-    public void saveOrUpdateUsers(Users users) {
+    public void updateUsers(Users users) {
 
         Session session = sessionFactory.openSession();
-        session.saveOrUpdate(users);
+        Transaction transaction = session.beginTransaction();
+        session.merge(users);
+        transaction.commit();
         session.close();
 
     }
@@ -58,11 +61,12 @@ public class UsersDao {
      */
     public int insertUsers(Users users) {
 
-        int id = 0;
+        int id = 1;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (int) session.save(users);
+        session.persist(users);
         transaction.commit();
+        id = users.getUser_id();
         session.close();
         return id;
 
@@ -93,10 +97,10 @@ public class UsersDao {
 
         Session session = sessionFactory.openSession();
 
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Users> criteria = builder.createQuery(Users.class);
-        Root<Users> root = criteria.from(Users.class);
-        List<Users> users = session.createQuery(criteria).getResultList();
+        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Users> query = builder.createQuery(Users.class);
+        Root<Users> root = query.from(Users.class);
+        List<Users> users = session.createSelectionQuery(query).getResultList();
 
         logger.debug("The list of users {}", users);
         session.close();

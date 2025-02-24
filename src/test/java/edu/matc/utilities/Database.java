@@ -19,7 +19,7 @@ import java.util.Properties;
 public class Database implements PropertiesLoader {
 
     // create an object of the class Database
-    private static Database instance = new Database();
+    private static final Database instance = new Database();
 
     private Properties properties;
     private Connection connection;

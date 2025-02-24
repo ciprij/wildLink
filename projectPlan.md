@@ -35,7 +35,7 @@
 #### Focus on getting user registration/sign-up completed and working with database
 
 - [ ] Create edu.matc.entity.Users.java (model)
-- [ ] Create UsersServlet.java (controller)
+- [ ] Create edu.matc.controller.UsersServlet.java (controller)
 - [ ] Create userSignup.jsp (view)
 - [ ] Create edu.matc.persistence.UsersDAO.java (DAO)
 - [ ] Setup Hibernate in environment

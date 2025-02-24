@@ -1,0 +1,6 @@
+[2025-02-23 19:56:51.678] [DEBUG] [main] UsersDao - The list of users []
+[2025-02-23 20:05:51.070] [DEBUG] [main] UsersDao - The list of users []
+[2025-02-23 20:12:53.513] [DEBUG] [main] UsersDao - The list of users []
+[2025-02-23 20:19:36.249] [DEBUG] [main] UsersDao - The list of users []
+[2025-02-23 20:22:07.109] [DEBUG] [main] UsersDao - The list of users [Users{user_id=1, username='JCipri', first_name='Jake', last_name='Cipri', password='password123', email='jcipri@madisoncollege.edu'}]
+[2025-02-23 20:49:47.890] [DEBUG] [main] UsersDao - The list of users []
