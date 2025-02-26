@@ -41,7 +41,6 @@ public class UsersDaoTest {
         Assertions.assertEquals("JCipri", retrievedUser.getUsername());
         Assertions.assertEquals("Jake", retrievedUser.getFirst_name());
         Assertions.assertEquals("Cipri", retrievedUser.getLast_name());
-        Assertions.assertEquals("password123", retrievedUser.getPassword());
         Assertions.assertEquals("jcipri@madisoncollege.edu", retrievedUser.getEmail());
 
     }
@@ -57,7 +56,6 @@ public class UsersDaoTest {
         retrievedUser.setFirst_name("John");
         retrievedUser.setLast_name("Doe");
         retrievedUser.setUsername("JDoe");
-        retrievedUser.setPassword("123");
         retrievedUser.setEmail("jdoe@madisoncollege.edu");
         usersDao.updateUsers(retrievedUser);
 
@@ -66,7 +64,6 @@ public class UsersDaoTest {
         Assertions.assertEquals("John", actualUser.getFirst_name());
         Assertions.assertEquals("Doe", actualUser.getLast_name());
         Assertions.assertEquals("JDoe", actualUser.getUsername());
-        Assertions.assertEquals("123", actualUser.getPassword());
         Assertions.assertEquals("jdoe@madisoncollege.edu", actualUser.getEmail());
 
     }
@@ -81,7 +78,6 @@ public class UsersDaoTest {
         retrievedUser.setUsername("JSmith");
         retrievedUser.setFirst_name("Jane");
         retrievedUser.setLast_name("Smith");
-        retrievedUser.setPassword("456");
         retrievedUser.setEmail("jsmith@madisoncollege.edu");
 
         int insertedUserId = usersDao.insertUsers(retrievedUser);
@@ -92,7 +88,6 @@ public class UsersDaoTest {
         Assertions.assertEquals("Jane", insertedUser.getFirst_name());
         Assertions.assertEquals("Smith", insertedUser.getLast_name());
         Assertions.assertEquals("JSmith", insertedUser.getUsername());
-        Assertions.assertEquals("456", insertedUser.getPassword());
         Assertions.assertEquals("jsmith@madisoncollege.edu", insertedUser.getEmail());
 
     }
