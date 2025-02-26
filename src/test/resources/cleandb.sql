@@ -55,7 +55,6 @@ CREATE TABLE `users` (
                          `username` varchar(255) NOT NULL,
                          `first_name` varchar(50) NOT NULL,
                          `last_name` varchar(100) NOT NULL,
-                         `password` varchar(255) NOT NULL,
                          `email` varchar(255) NOT NULL,
                          PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -67,7 +66,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'JCipri','Jake','Cipri','password123','jcipri@madisoncollege.edu');
+INSERT INTO `users` VALUES (1,'JCipri','Jake','Cipri','jcipri@madisoncollege.edu');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
