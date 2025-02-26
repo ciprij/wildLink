@@ -25,9 +25,6 @@ public class Users {
     private String last_name;
 
     @Column
-    private String password;
-
-    @Column
     private String email;
 
     /**
@@ -44,15 +41,13 @@ public class Users {
      * @param username   the username
      * @param first_name the first name
      * @param last_name  the last name
-     * @param password   the password
      * @param email      the email
      */
-    public Users(int user_id, String username, String first_name, String last_name, String password, String email) {
+    public Users(int user_id, String username, String first_name, String last_name, String email) {
         this.user_id = user_id;
         this.username = username;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.password = password;
         this.email = email;
     }
 
@@ -129,24 +124,6 @@ public class Users {
     }
 
     /**
-     * Gets password.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
      * Gets email.
      *
      * @return the email
@@ -171,7 +148,6 @@ public class Users {
                 ", username='" + username + '\'' +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
-                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
