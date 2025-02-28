@@ -1,7 +1,6 @@
 package edu.matc.persistence;
 
-import edu.matc.entity.Users;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import edu.matc.entity.User;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.*;
@@ -13,9 +12,9 @@ import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 import java.util.List;
 
 /**
- * The type Users dao.
+ * The type User dao.
  */
-public class UsersDao {
+public class UserDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     /**
@@ -29,82 +28,82 @@ public class UsersDao {
      * @param id the id
      * @return the user by id
      */
-    public Users getUserById(int id) {
+    public User getUserById(int id) {
 
         Session session = sessionFactory.openSession();
-        Users users = session.get(Users.class, id);
+        User user = session.get(User.class, id);
         session.close();
-        return users;
+        return user;
 
     }
 
     /**
-     * Save or update users.
+     * Save or update user.
      *
-     * @param users the users
+     * @param user the user
      */
-    public void updateUsers(Users users) {
+    public void updateUser(User user) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(users);
+        session.merge(user);
         transaction.commit();
         session.close();
 
     }
 
     /**
-     * Insert users int.
+     * Insert user int.
      *
-     * @param users the users
+     * @param user the user
      * @return the int
      */
-    public int insertUsers(Users users) {
+    public int insertUser(User user) {
 
         int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(users);
+        session.persist(user);
         transaction.commit();
-        id = users.getUser_id();
+        id = user.getUser_id();
         session.close();
         return id;
 
     }
 
     /**
-     * Delete users.
+     * Delete user.
      *
-     * @param users the users
+     * @param user the user
      */
-    public void deleteUsers(Users users) {
+    public void deleteUser(User user) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(users);
+        session.delete(user);
         transaction.commit();
         session.close();
 
     }
 
     /**
-     * Gets all users.
+     * Gets all user.
      *
-     * @return the all users
+     * @return the all user
      */
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
 
         Session session = sessionFactory.openSession();
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Users> query = builder.createQuery(Users.class);
-        Root<Users> root = query.from(Users.class);
-        List<Users> users = session.createSelectionQuery(query).getResultList();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> root = query.from(User.class);
+        List<User> user = session.createSelectionQuery(query).getResultList();
 
-        logger.debug("The list of users {}", users);
+        logger.debug("The list of users {}", user);
         session.close();
 
-        return users;
+        return user;
 
     }
 

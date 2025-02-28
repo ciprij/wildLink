@@ -1,7 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.utilities.Database;
-import edu.matc.entity.Users;
+import edu.matc.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * The type Users dao test.
  */
-public class UsersDaoTest {
+public class UserDaoTest {
 
     /**
      * The Users dao.
      */
-    UsersDao usersDao;
+    UserDao userDao;
 
     /**
      * Sets up.
@@ -26,7 +26,7 @@ public class UsersDaoTest {
 
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
-        usersDao = new UsersDao();
+        userDao = new UserDao();
 
     }
 
@@ -36,7 +36,7 @@ public class UsersDaoTest {
     @Test
     public void getById() {
 
-        Users retrievedUser = usersDao.getUserById(1);
+        User retrievedUser = userDao.getUserById(1);
         Assertions.assertEquals(1, retrievedUser.getUser_id());
         Assertions.assertEquals("JCipri", retrievedUser.getUsername());
         Assertions.assertEquals("Jake", retrievedUser.getFirst_name());
@@ -51,15 +51,15 @@ public class UsersDaoTest {
     @Test
     public void update() {
 
-        Users retrievedUser = usersDao.getUserById(1);
+        User retrievedUser = userDao.getUserById(1);
         retrievedUser.setUser_id(1);
         retrievedUser.setFirst_name("John");
         retrievedUser.setLast_name("Doe");
         retrievedUser.setUsername("JDoe");
         retrievedUser.setEmail("jdoe@madisoncollege.edu");
-        usersDao.updateUsers(retrievedUser);
+        userDao.updateUser(retrievedUser);
 
-        Users actualUser = usersDao.getUserById(1);
+        User actualUser = userDao.getUserById(1);
         Assertions.assertEquals(1, actualUser.getUser_id());
         Assertions.assertEquals("John", actualUser.getFirst_name());
         Assertions.assertEquals("Doe", actualUser.getLast_name());
@@ -74,16 +74,16 @@ public class UsersDaoTest {
     @Test
     public void insert() {
 
-        Users retrievedUser = new Users();
+        User retrievedUser = new User();
         retrievedUser.setUsername("JSmith");
         retrievedUser.setFirst_name("Jane");
         retrievedUser.setLast_name("Smith");
         retrievedUser.setEmail("jsmith@madisoncollege.edu");
 
-        int insertedUserId = usersDao.insertUsers(retrievedUser);
+        int insertedUserId = userDao.insertUser(retrievedUser);
         Assertions.assertNotEquals(0, insertedUserId);
 
-        Users insertedUser = usersDao.getUserById(insertedUserId);
+        User insertedUser = userDao.getUserById(insertedUserId);
         Assertions.assertEquals(2, insertedUser.getUser_id());
         Assertions.assertEquals("Jane", insertedUser.getFirst_name());
         Assertions.assertEquals("Smith", insertedUser.getLast_name());
@@ -98,8 +98,8 @@ public class UsersDaoTest {
     @Test
     public void delete() {
 
-        usersDao.deleteUsers(usersDao.getUserById(1));
-        Assertions.assertNull(usersDao.getUserById(1));
+        userDao.deleteUser(userDao.getUserById(1));
+        Assertions.assertNull(userDao.getUserById(1));
 
     }
 
@@ -109,7 +109,7 @@ public class UsersDaoTest {
     @Test
     public void getAll() {
 
-        List<Users> retrievedUsers = usersDao.getAllUsers();
+        List<User> retrievedUsers = userDao.getAllUsers();
         Assertions.assertEquals(1, retrievedUsers.size());
 
     }

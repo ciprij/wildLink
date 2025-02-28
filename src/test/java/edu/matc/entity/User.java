@@ -5,11 +5,11 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * The type Users.
+ * The type User.
  */
 @Entity
-@Table(name = "users") // case-sensitive!
-public class Users {
+@Table(name = "user") // case-sensitive!
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -30,7 +30,7 @@ public class Users {
     /**
      * Instantiates a new Users.
      */
-    public Users() {
+    public User() {
 
     }
 
@@ -43,7 +43,7 @@ public class Users {
      * @param last_name  the last name
      * @param email      the email
      */
-    public Users(int user_id, String username, String first_name, String last_name, String email) {
+    public User(int user_id, String username, String first_name, String last_name, String email) {
         this.user_id = user_id;
         this.username = username;
         this.first_name = first_name;
