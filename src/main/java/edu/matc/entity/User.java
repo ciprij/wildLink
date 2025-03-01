@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type User.
@@ -30,7 +31,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 
     /**
      * Instantiates a new Users.
@@ -81,7 +82,7 @@ public class User {
      *
      * @return the posts
      */
-    public ArrayList<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
@@ -90,7 +91,7 @@ public class User {
      *
      * @param posts the posts
      */
-    public void setPosts(ArrayList<Post> posts) {
+    public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
 

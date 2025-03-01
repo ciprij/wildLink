@@ -11,3 +11,4 @@
 [2025-02-27 20:01:07.308] [DEBUG] [main] UserDao - The list of users [Users{user_id=1, username='JCipri', first_name='Jake', last_name='Cipri', email='jcipri@madisoncollege.edu'}]
 [2025-02-27 20:02:07.189] [DEBUG] [main] UserDao - The list of users [Users{user_id=1, username='JCipri', first_name='Jake', last_name='Cipri', email='jcipri@madisoncollege.edu'}]
 [2025-02-27 20:02:15.510] [DEBUG] [main] UserDao - The list of users [Users{user_id=1, username='JCipri', first_name='Jake', last_name='Cipri', email='jcipri@madisoncollege.edu'}]
+[2025-03-01 16:47:52.189] [DEBUG] [main] UserDao - The list of users [Users{user_id=1, username='JCipri', first_name='Jake', last_name='Cipri', email='jcipri@madisoncollege.edu'}]

@@ -18,6 +18,7 @@ public class Post {
     private int post_id;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column
@@ -27,7 +28,7 @@ public class Post {
     private String post_body;
 
     @Column
-    private LocalDateTime post_date;
+    private LocalDateTime date_posted;
 
     /**
      * Instantiates a new Post.
@@ -42,13 +43,13 @@ public class Post {
      * @param user         the user
      * @param post_subject the post subject
      * @param post_body    the post body
-     * @param post_date    the post date
+     * @param date_posted    the post date
      */
-    public Post(User user, String post_subject, String post_body, LocalDateTime post_date) {
+    public Post(User user, String post_subject, String post_body, LocalDateTime date_posted) {
         this.user = user;
         this.post_subject = post_subject;
         this.post_body = post_body;
-        this.post_date = post_date;
+        this.date_posted = date_posted;
     }
 
     /**
@@ -128,17 +129,17 @@ public class Post {
      *
      * @return the post date
      */
-    public LocalDateTime getPost_date() {
-        return post_date;
+    public LocalDateTime getDate_posted() {
+        return date_posted;
     }
 
     /**
      * Sets post date.
      *
-     * @param post_date the post date
+     * @param date_posted the post date
      */
-    public void setPost_date(LocalDateTime post_date) {
-        this.post_date = post_date;
+    public void setDate_posted(LocalDateTime date_posted) {
+        this.date_posted = date_posted;
     }
 
     @Override
@@ -148,7 +149,7 @@ public class Post {
                 ", user=" + user +
                 ", post_subject='" + post_subject + '\'' +
                 ", post_body='" + post_body + '\'' +
-                ", post_date=" + post_date +
+                ", post_date=" + date_posted +
                 '}';
     }
 }
