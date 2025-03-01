@@ -4,6 +4,8 @@ package edu.matc.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+
 /**
  * The type User.
  */
@@ -26,6 +28,9 @@ public class User {
 
     @Column
     private String email;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ArrayList<Post> posts = new ArrayList<>();
 
     /**
      * Instantiates a new Users.
@@ -52,7 +57,46 @@ public class User {
     }
 
     /**
+     * Add post.
+     *
+     * @param post the post
+     */
+    public void addPost(Post post) {
+        posts.add(post);
+        post.setUser(this);
+    }
+
+    /**
+     * Remove post.
+     *
+     * @param post the post
+     */
+    public void removePost(Post post) {
+        posts.remove(post);
+        post.setUser(null);
+    }
+
+    /**
+     * Gets posts.
+     *
+     * @return the posts
+     */
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+
+    /**
+     * Sets posts.
+     *
+     * @param posts the posts
+     */
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
+
+    /**
      * Gets user id.
+     *
      *
      * @return the user id
      */
