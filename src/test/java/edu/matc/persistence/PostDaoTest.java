@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.Post;
+import edu.matc.entity.User;
 import edu.matc.utilities.Database;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,13 +9,22 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+/**
+ * The type Post dao test.
+ */
 class PostDaoTest {
 
+    /**
+     * The Post dao.
+     */
     PostDao postDao;
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     void setUp() {
 
@@ -24,6 +34,9 @@ class PostDaoTest {
 
     }
 
+    /**
+     * Gets post by id.
+     */
     @Test
     void getPostById() {
 
@@ -36,6 +49,9 @@ class PostDaoTest {
 
     }
 
+    /**
+     * Update post.
+     */
     @Test
     void updatePost() {
 
@@ -51,21 +67,49 @@ class PostDaoTest {
 
     }
 
+    /**
+     * Insert post.
+     */
     @Test
     void insertPost() {
 
+        Post newPost = new Post();
+
+        User user = new User();
+        user.setUser_id(1);
+
+        newPost.setUser(user);
+        newPost.setPost_subject("TESTING");
+        newPost.setPost_body("TESTING TESTING");
+        newPost.setDate_posted(Timestamp.valueOf(LocalDateTime.now()));
+        postDao.insertPost(newPost);
+
+        Timestamp expectedTimestamp = Timestamp.valueOf(LocalDateTime.now());
+        expectedTimestamp.setNanos(0);
+
+        Post actualPost = postDao.getPostById(4);
+        Assertions.assertEquals(actualPost.getDate_posted().toLocalDateTime().truncatedTo(ChronoUnit.SECONDS),
+                expectedTimestamp.toLocalDateTime().truncatedTo(ChronoUnit.SECONDS));
+        Assertions.assertEquals(actualPost.getPost_subject(), newPost.getPost_subject());
+        Assertions.assertEquals(actualPost.getPost_body(), newPost.getPost_body());
 
 
     }
 
+    /**
+     * Delete post.
+     */
     @Test
-    void deletePost() {
+        void deletePost() {
 
         postDao.deletePost(postDao.getPostById(1));
         Assertions.assertNull(postDao.getPostById(1));
 
     }
 
+    /**
+     * Gets all posts.
+     */
     @Test
     void getAllPosts() {
 
