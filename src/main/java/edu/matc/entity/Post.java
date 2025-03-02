@@ -3,7 +3,8 @@ package edu.matc.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.time.LocalDateTime;
+import java.sql.Time;
+import java.sql.Timestamp;
 
 /**
  * The type Post.
@@ -28,7 +29,7 @@ public class Post {
     private String post_body;
 
     @Column
-    private LocalDateTime date_posted;
+    private Timestamp date_posted;
 
     /**
      * Instantiates a new Post.
@@ -45,7 +46,7 @@ public class Post {
      * @param post_body    the post body
      * @param date_posted    the post date
      */
-    public Post(User user, String post_subject, String post_body, LocalDateTime date_posted) {
+    public Post(User user, String post_subject, String post_body, Timestamp date_posted) {
         this.user = user;
         this.post_subject = post_subject;
         this.post_body = post_body;
@@ -129,7 +130,7 @@ public class Post {
      *
      * @return the post date
      */
-    public LocalDateTime getDate_posted() {
+    public Timestamp getDate_posted() {
         return date_posted;
     }
 
@@ -138,7 +139,7 @@ public class Post {
      *
      * @param date_posted the post date
      */
-    public void setDate_posted(LocalDateTime date_posted) {
+    public void setDate_posted(Timestamp date_posted) {
         this.date_posted = date_posted;
     }
 
