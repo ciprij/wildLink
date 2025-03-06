@@ -72,7 +72,6 @@
 
 - [ ] Implement user search functionality  
 - [ ] Implement follow/unfollow functionality  
-- [ ] Implement direct messaging (basic functionality)  
 - [ ] Implement Bootstrap Validator for form validation  
 - [ ] Time log / weekly reflection  
 
@@ -92,9 +91,7 @@
 ### Week 10  
 
 #### Focus on Gear Reviews & Recommendations  
-
-- [ ] Implement gear review submission functionality  
-- [ ] Implement search for gear recommendations  
+  
 - [ ] Integrate Hibernate Search for optimized search functionality  
 - [ ] Time log / weekly reflection  
 
