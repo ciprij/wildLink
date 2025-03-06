@@ -7,7 +7,7 @@
     <session-factory>
 
         <!-- database connection -->
-        <property name="connection.url">jdbc:mysql://localhost:3306/wildlink</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-mcu2s8zp4c-stack-awsebrdsdatabase-kazxhqxh7ele.c78oygccg399.us-east-2.rds.amazonaws.com:3306/wildlink</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">student</property>
@@ -18,6 +18,7 @@
         <property name="hibernate.c3p0.timeout">300</property>
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.Post"/>
