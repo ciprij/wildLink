@@ -11,8 +11,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 /**
- * A simple servlet to welcome the user.
- * @author pwaite
+ * A simple servlet to get a list of all users.
  */
 
 @WebServlet(
@@ -20,6 +19,15 @@ import java.io.IOException;
 )
 
 public class SearchUser extends HttpServlet {
+
+    /**
+     * Handles HTTP GET requests by retrieving all users and forwarding the request to the results page.
+     *
+     * @param req  the HttpServletRequestobject that contains the request the client made
+     * @param resp the HttpServletResponse object that contains the response the servlet sends
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an input or output error occurs while handling the request
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -28,4 +36,5 @@ public class SearchUser extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
+
 }

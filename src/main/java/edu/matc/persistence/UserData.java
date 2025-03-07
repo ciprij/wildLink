@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type User data.
+ */
 public class UserData {
     /**
      * Gets all users.
@@ -51,7 +54,13 @@ public class UserData {
         return users;
 
     }
-
+    /**
+     * Creates a User object from the given ResultSet.
+     *
+     * @param results the ResultSet containing user data from a database query
+     * @return a User object populated with data from the ResultSet
+     * @throws SQLException if a database access error occurs or the column labels are not found
+     */
     private User createUserFromResults(ResultSet results) throws SQLException {
 
         User user = new User();
