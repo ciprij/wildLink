@@ -33,4 +33,58 @@ the project but that is fine.  I'm hoping I can allot more time to the project n
 
 ---
 
-### Week 4 - 
+### Week 5 - 
+
+---
+
+### Week 6 - 
+
+---
+
+### Week 7 - 6 hours
+
+Tasks Completed:
+* completed exercise 6
+* completed exercise 7
+* adjusted indie project based off checkpoint 1 feedback
+* added replaced system.out.println() with log4j
+
+This week I was able to get mostly caught up.  I spent a lot of time also updating 
+and implementing some of the weeks topics into my indie project.  Week 8 I plan to 
+implement Cognito into my project and further define the JSPs and main page of the site.
+
+---
+
+### Week 8 - 
+
+---
+
+### Week 9 - 
+
+---
+
+### Week 10 - 
+
+---
+
+### Week 11 - 
+
+---
+
+### Week 12 - 
+
+---
+
+### Week 13 - 
+
+---
+
+### Week 14 - 
+
+---
+
+### Week 15 - 
+
+---
+
+### Week 16 - 
