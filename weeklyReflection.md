@@ -33,21 +33,49 @@ the project but that is fine.  I'm hoping I can allot more time to the project n
 
 ---
 
-### Week 5 - 
+
+### Week 4 - 2 hours
+
+Tasks Completed:
+* completed week 3 exercise
+* completed activity 1
+* watched videos
+
+Mostly focused on the exercise and activity this week, didn't do much for the indie project.
+Will try to double down next week to get that in better shape.  Added the dependencies in my 
+indie project for Log4j.
 
 ---
 
-### Week 6 - 
+### Week 5 - 4 hours
+
+Tasks Completed:
+* worked on implementing Hibernate into my project environment
+* worked on completing week 4 exercise (spent a lot of time)
 
 ---
 
-### Week 7 - 6 hours
+### Week 6 - 5 hours
+
+Tasks Completed:
+* completed exercise 5 
+* completed week 6 exercise on my indie project
+* adjusted Dao's and JSP's on indie project
+* adjusted database/tables
+* refined Dao tests
+
+---
+
+### Week 7 - 8 hours
 
 Tasks Completed:
 * completed exercise 6
 * completed exercise 7
+* checkpoint 2 completed
 * adjusted indie project based off checkpoint 1 feedback
 * added replaced system.out.println() with log4j
+* updated weekly reflection
+* got my indie project on AWS Elastic Beanstalk
 
 This week I was able to get mostly caught up.  I spent a lot of time also updating 
 and implementing some of the weeks topics into my indie project.  Week 8 I plan to 

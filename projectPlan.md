@@ -14,7 +14,7 @@
 ### Week 3
 
 - [X] Complete wireframes for indie project
-- [ ] Complete project plan
+- [X] Complete project plan
 - [X] Complete user stories
 - [X] Time log / weekly reflection
 - [X] Denote MVP stories on userStories
@@ -46,11 +46,8 @@
 
 #### Focus on User Authentication (AWS Cognito) & Profile Management  
 
-- [ ] Integrate AWS Cognito for user authentication  
-- [ ] Implement user login functionality  
-- [ ] Implement user logout functionality  
-- [ ] Implement password reset functionality  
-- [ ] Time log / weekly reflection  
+- [ ] Integrate AWS Cognito for user authentication
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -61,7 +58,7 @@
 - [ ] Implement user profile creation (backend & database integration)  
 - [ ] Implement profile editing functionality  
 - [ ] Implement profile picture upload  
-- [ ] Set up Bootstrap or Materialize for UI styling  
+- [X] Set up Bootstrap for UI styling  
 - [ ] Time log / weekly reflection  
 
 ---
