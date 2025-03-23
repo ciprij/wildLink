@@ -64,6 +64,5 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 ### Project Progress
 
 - [Weekly Reflection](weeklyReflection.md)
-- [Time Log](timeLog.md)
 
 ---
