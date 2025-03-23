@@ -25,7 +25,7 @@ public class UserData {
      */
     public List<User> getAllUsers() {
 
-        String sql = "SELECT * FROM user";
+        String sql = "SELECT * FROM user ORDER BY username ASC";
         return executeQuery(sql);
 
     }
@@ -75,4 +75,12 @@ public class UserData {
 
         return user;
     }
+
+    public List<User> getUsersByPage(int page, int pageSize) {
+        // Calculate the offset for the SQL query
+        int offset = (page - 1) * pageSize;
+        String sql = "SELECT * FROM user LIMIT " + pageSize + " OFFSET " + offset;
+        return executeQuery(sql);
+    }
+
 }
