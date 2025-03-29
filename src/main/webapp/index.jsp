@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Weather Information" />
 <%@include file="head.jsp"%>
 <%@include file="header.jsp"%>
 <html>
@@ -26,6 +29,27 @@
             <form action="${pageContext.request.contextPath}/searchUser">
                 <button type="submit" name="submit" value="viewAll" class="btn btn-primary btn-sm mt-1">View all users</button>
             </form>
+        </div>
+
+        <div class="container-sm justify-content-center text-center border rounded bg-light my-4 p-4">
+            <h3>Do you know what the weather is like for your next adventure?</h3>
+            <form action="WeatherSearch" class="container-sm justify-content-center text-center my-4" method="get">
+                <label for="location">Enter a city (city or zip code):</label>
+                <input type="text" id="location" name="location" required>
+                <button type="submit" class="btn btn-primary btn-sm mb-1">Get Weather</button>
+            </form>
+
+
+            <c:if test="${not empty weatherData}">
+                <div class="container-sm text-center">
+                    <hr class="border border-primary border-3 opacity-75">
+                    <h2>Weather for ${weatherData.location.name}</h2>
+                    <p><Strong>Temperature:</Strong> ${weatherData.current.tempF} °F</p>
+                    <p><Strong>Condition:</Strong> ${weatherData.current.condition.text}</p>
+                    <p><Strong>Wind:</Strong> ${weatherData.current.windMph} mph from the ${weatherData.current.windDir}</p>
+                    <p><Strong>Humidity:</Strong> ${weatherData.current.humidity}%</p>
+                </div>
+            </c:if>
         </div>
 
     </body>
