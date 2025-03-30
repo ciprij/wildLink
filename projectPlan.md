@@ -46,49 +46,49 @@
 
 #### Focus on User Authentication (AWS Cognito) & Profile Management  
 
-- [ ] Integrate AWS Cognito for user authentication
+- [X] Integrate AWS Cognito for user authentication
 - [X] Time log / weekly reflection  
 
 ---
 
 ### Week 7  
 
-#### Focus on Profile Creation & Editing  
-
-- [ ] Implement user profile creation (backend & database integration)  
-- [ ] Implement profile editing functionality  
-- [ ] Implement profile picture upload  
+#### Focus on Bootstrap  
+ 
 - [X] Set up Bootstrap for UI styling  
-- [ ] Time log / weekly reflection  
+- [X] Time log / weekly reflection  
 
 ---
 
 ### Week 8  
 
-#### Focus on Community Features (Search, Follow, Messaging)  
+#### Focus on getting database search working
 
-- [ ] Implement user search functionality  
-- [ ] Implement follow/unfollow functionality  
-- [ ] Implement Bootstrap Validator for form validation  
-- [ ] Time log / weekly reflection  
+- [X] Implement user search functionality (basic)
+- [X] Work on more Bootstrap styling
+- [X] Time log / weekly reflection  
 
 ---
 
 ### Week 9  
 
-#### Focus on Posting & Content Sharing  
+#### Focus on user profile creation and remaining DB creation
 
-- [ ] Implement post creation (text, image, location tag)  
-- [ ] Implement commenting and liking features  
-- [ ] Implement post editing and deletion  
+- [ ] Implement user profile creation (backend & database integration)
+- [ ] Implement profile editing functionality
+- [ ] Implement profile picture upload
+- [ ] Create missing tables
 - [ ] Time log / weekly reflection  
 
 ---
 
 ### Week 10  
 
-#### Focus on Gear Reviews & Recommendations  
-  
+#### Focus on user posting
+
+- [ ] Implement post creation (text, image, location tag)
+- [ ] Implement commenting and liking features
+- [ ] Implement post editing and deletion
 - [ ] Integrate Hibernate Search for optimized search functionality  
 - [ ] Time log / weekly reflection  
 
@@ -120,8 +120,7 @@
 #### Deployment & Staging  
 
 - [ ] Deploy the app to AWS (staging environment)  
-- [ ] Test performance and database queries  
-- [ ] Gather user feedback for improvements  
+- [ ] Test performance and database queries
 - [ ] Time log / weekly reflection  
 
 ---
@@ -130,8 +129,6 @@
 
 #### Security & Performance Optimization  
 
-- [ ] Perform security audits on authentication and database access  
-- [ ] Optimize database queries for faster performance  
 - [ ] Test and refine AWS hosting configuration  
 - [ ] Time log / weekly reflection  
 

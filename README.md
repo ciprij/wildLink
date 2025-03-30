@@ -25,9 +25,9 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 * Dependency Management
   * Maven
 * Web Services consumed using Java
-  * TBD 
+  * WeatherAPI.com
 * CSS 
-  * Bootstrap or Materialize 
+  * Bootstrap
 * Data Validation
   * Bootstrap Validator for front end
   * Explore Hibernate Validator?
@@ -37,8 +37,7 @@ WildLink aims to solve this problem by providing a dedicated social networking p
   * AWS
 * Tech I'd like to explore as part of this work
   * CI tools in AWS
-  * Materialize
-  * Google Maps API
+  * WeatherAPI
   * Hibernate Validator
   * Hibernate Search
 * Project Lombok

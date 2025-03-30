@@ -85,9 +85,26 @@ implement Cognito into my project and further define the JSPs and main page of t
 
 ### Week 8 - 
 
+Tasks Completed:
+* worked updating projectPlan
+* work on checkpoint 3
+
+Didn't complete as much as I would have liked to but content nonetheless.
+
 ---
 
 ### Week 9 - 
+
+Tasks Completed:
+* exercise 8
+* started work on team project
+* added WeatherAPI.com web service
+* checkpoint 3 completed
+* updated projectPlan
+* updated README
+
+Worked on getting caught up on project tasks.  Still a bit behind but aiming to 
+get back on track by the start of the new week.
 
 ---
 
