@@ -19,7 +19,7 @@
                 is your hub for inspiration, knowledge, and community. Start your journey today!
             </p>
             <!-- TODO Update action to AWS Cognito -->
-            <form action="#" class="text-center">
+            <form action="${pageContext.request.contextPath}/logIn" class="text-center">
                 <button type="submit" name="submit" value="signUp" class="btn btn-primary btn-lg mt-3">Sign-up and join today!</button>
             </form>
         </div>
