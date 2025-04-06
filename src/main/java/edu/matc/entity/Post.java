@@ -19,9 +19,7 @@ public class Post {
     @GenericGenerator(name = "native", strategy = "native")
     private int post_id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
 
     @Column
     private String post_subject;
@@ -32,8 +30,15 @@ public class Post {
     @Column
     private Timestamp date_posted;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Like> like = new ArrayList<>();
 
     /**
      * Instantiates a new Post.
@@ -48,7 +53,7 @@ public class Post {
      * @param user         the user
      * @param post_subject the post subject
      * @param post_body    the post body
-     * @param date_posted    the post date
+     * @param date_posted  the post date
      */
     public Post(User user, String post_subject, String post_body, Timestamp date_posted) {
         this.user = user;
@@ -147,12 +152,40 @@ public class Post {
         this.date_posted = date_posted;
     }
 
+    /**
+     * Gets comments.
+     *
+     * @return the comments
+     */
     public List<Comment> getComments() {
         return comments;
     }
 
+    /**
+     * Sets comments.
+     *
+     * @param comments the comments
+     */
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    /**
+     * Gets like.
+     *
+     * @return the like
+     */
+    public List<Like> getLike() {
+        return like;
+    }
+
+    /**
+     * Sets like.
+     *
+     * @param like the like
+     */
+    public void setLike(List<Like> like) {
+        this.like = like;
     }
 
     @Override
@@ -165,4 +198,5 @@ public class Post {
                 ", post_date=" + date_posted +
                 '}';
     }
+
 }
