@@ -77,7 +77,7 @@
 - [ ] Implement user profile creation (backend & database integration)
 - [ ] Implement profile editing functionality
 - [ ] Implement profile picture upload
-- [ ] Create missing tables
+- [X] Create missing tables
 - [ ] Time log / weekly reflection  
 
 ---
