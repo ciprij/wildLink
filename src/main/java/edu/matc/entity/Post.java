@@ -3,8 +3,9 @@ package edu.matc.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type Post.
@@ -30,6 +31,9 @@ public class Post {
 
     @Column
     private Timestamp date_posted;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 
     /**
      * Instantiates a new Post.
@@ -141,6 +145,14 @@ public class Post {
      */
     public void setDate_posted(Timestamp date_posted) {
         this.date_posted = date_posted;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

@@ -30,6 +30,9 @@ public class User {
     @Column
     private String email;
 
+    @Column
+    private String bio;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
 
@@ -48,13 +51,15 @@ public class User {
      * @param first_name the first name
      * @param last_name  the last name
      * @param email      the email
+     * @param bio        the bio
      */
-    public User(int user_id, String username, String first_name, String last_name, String email) {
+    public User(int user_id, String username, String first_name, String last_name, String email, String bio) {
         this.user_id = user_id;
         this.username = username;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
+        this.bio = "";
     }
 
     /**
@@ -186,6 +191,20 @@ public class User {
         this.email = email;
     }
 
+    /**
+     * Gets bio.
+     *
+     * @return the bio
+     */
+    public String getBio() { return bio; }
+
+    /**
+     * Sets bio.
+     *
+     * @param bio the bio
+     */
+    public void setBio(String bio) { this.bio = bio; }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -194,6 +213,7 @@ public class User {
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", email='" + email + '\'' +
+                ", bio='" + bio + '\'' +
                 '}';
     }
 }
