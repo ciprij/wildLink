@@ -76,7 +76,6 @@
 
 - [ ] Implement user profile creation (backend & database integration)
 - [ ] Implement profile editing functionality
-- [ ] Implement profile picture upload
 - [X] Create missing tables
 - [ ] Time log / weekly reflection  
 
@@ -89,7 +88,6 @@
 - [ ] Implement post creation (text, image, location tag)
 - [ ] Implement commenting and liking features
 - [ ] Implement post editing and deletion
-- [ ] Integrate Hibernate Search for optimized search functionality  
 - [ ] Time log / weekly reflection  
 
 ---
