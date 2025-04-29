@@ -15,9 +15,6 @@ public class Comment {
     private int comment_id;
 
     @Column
-    private int post_id;
-
-    @Column
     private String comment_body;
 
     @Column
@@ -38,13 +35,13 @@ public class Comment {
      * Instantiates a new Comment.
      *
      * @param comment_id        the comment id
-     * @param post_id           the post id
+     * @param post              the post
      * @param comment_body      the comment body
      * @param comment_timestamp the comment timestamp
      */
-    public Comment(int comment_id, int post_id, String comment_body, String comment_timestamp) {
+    public Comment(int comment_id, Post post, String comment_body, String comment_timestamp) {
         this.comment_id = comment_id;
-        this.post_id = post_id;
+        this.post = post;
         this.comment_body = comment_body;
         this.comment_timestamp = comment_timestamp;
     }
@@ -65,24 +62,6 @@ public class Comment {
      */
     public void setComment_id(int comment_id) {
         this.comment_id = comment_id;
-    }
-
-    /**
-     * Gets post id.
-     *
-     * @return the post id
-     */
-    public int getPost_id() {
-        return post_id;
-    }
-
-    /**
-     * Sets post id.
-     *
-     * @param post_id the post id
-     */
-    public void setPost_id(int post_id) {
-        this.post_id = post_id;
     }
 
     /**
@@ -142,8 +121,8 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "comment_id=" + comment_id +
-                ", post_id=" + post_id +
+                "comment_id=" + comment_id + '\'' +
+                ", post=" + post + '\'' +
                 ", comment_body='" + comment_body + '\'' +
                 ", comment_timestamp='" + comment_timestamp + '\'' +
                 '}';

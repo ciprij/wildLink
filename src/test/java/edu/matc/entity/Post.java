@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The type Post.
@@ -18,8 +19,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int post_id;
-
-
 
     @Column
     private String post_subject;
@@ -186,6 +185,25 @@ public class Post {
      */
     public void setLike(List<Like> like) {
         this.like = like;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return post_id == post.post_id
+                && Objects.equals(post_subject, post.post_subject)
+                && Objects.equals(post_body, post.post_body)
+                && Objects.equals(date_posted, post.date_posted)
+                && (user != null && post.user != null
+                ? user.getUser_id() == post.user.getUser_id()
+                : user == post.user); // only compare userId
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(post_id, user, post_subject, post_body, date_posted);
     }
 
     @Override

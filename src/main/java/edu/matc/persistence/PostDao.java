@@ -17,7 +17,7 @@ public class PostDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    public Post getPostById(int id) {
+    public Post getById(int id) {
 
         Session session = sessionFactory.openSession();
         Post post = session.get(Post.class, id);
@@ -26,7 +26,7 @@ public class PostDao {
 
     }
 
-    public void updatePost(Post post) {
+    public void update(Post post) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -36,7 +36,7 @@ public class PostDao {
 
     }
 
-    public int insertPost(Post post) {
+    public int insert(Post post) {
 
         int id = 0;
         Session session = sessionFactory.openSession();
@@ -49,7 +49,7 @@ public class PostDao {
 
     }
 
-    public void deletePost(Post post) {
+    public void delete(Post post) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -59,7 +59,7 @@ public class PostDao {
 
     }
 
-    public List<Post> getAllPosts() {
+    public List<Post> getAll() {
 
         Session session = sessionFactory.openSession();
 

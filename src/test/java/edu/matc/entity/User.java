@@ -6,12 +6,13 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The type User.
  */
 @Entity
-@Table(name = "user") // case-sensitive!
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -59,7 +60,7 @@ public class User {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
-        this.bio = "";
+        this.bio = bio;
     }
 
     /**
@@ -204,6 +205,23 @@ public class User {
      * @param bio the bio
      */
     public void setBio(String bio) { this.bio = bio; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username)
+                && Objects.equals(first_name, user.first_name)
+                && Objects.equals(last_name, user.last_name)
+                && Objects.equals(email, user.email)
+                && Objects.equals(bio, user.bio);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, first_name, last_name, email, bio);
+    }
 
     @Override
     public String toString() {

@@ -36,13 +36,17 @@ public class UserDaoTest {
     @Test
     public void getById() {
 
-        User retrievedUser = userDao.getUserById(1);
-        Assertions.assertEquals(1, retrievedUser.getUser_id());
-        Assertions.assertEquals("JCipri", retrievedUser.getUsername());
-        Assertions.assertEquals("Jake", retrievedUser.getFirst_name());
-        Assertions.assertEquals("Cipri", retrievedUser.getLast_name());
-        Assertions.assertEquals("jcipri@madisoncollege.edu", retrievedUser.getEmail());
+        User expectedUser = new User();
+        expectedUser.setUser_id(1);
+        expectedUser.setUsername("JCipri");
+        expectedUser.setFirst_name("Jake");
+        expectedUser.setLast_name("Cipri");
+        expectedUser.setEmail("jcipri@madisoncollege.edu");
+        expectedUser.setBio("software dev with a love for the outdoors!");
 
+        User actualUser = userDao.getById(1);
+
+        Assertions.assertEquals(expectedUser, actualUser);
     }
 
     /**
@@ -51,20 +55,18 @@ public class UserDaoTest {
     @Test
     public void update() {
 
-        User retrievedUser = userDao.getUserById(1);
-        retrievedUser.setUser_id(1);
+        User retrievedUser = userDao.getById(1);
         retrievedUser.setFirst_name("John");
         retrievedUser.setLast_name("Doe");
         retrievedUser.setUsername("JDoe");
         retrievedUser.setEmail("jdoe@madisoncollege.edu");
-        userDao.updateUser(retrievedUser);
+        retrievedUser.setBio("bio");
 
-        User actualUser = userDao.getUserById(1);
-        Assertions.assertEquals(1, actualUser.getUser_id());
-        Assertions.assertEquals("John", actualUser.getFirst_name());
-        Assertions.assertEquals("Doe", actualUser.getLast_name());
-        Assertions.assertEquals("JDoe", actualUser.getUsername());
-        Assertions.assertEquals("jdoe@madisoncollege.edu", actualUser.getEmail());
+        userDao.update(retrievedUser);
+
+        User actualUser = userDao.getById(1);
+
+        Assertions.assertEquals(retrievedUser, actualUser);
 
     }
 
@@ -74,22 +76,20 @@ public class UserDaoTest {
     @Test
     public void insert() {
 
-        User retrievedUser = new User();
-        retrievedUser.setUsername("JSmith");
-        retrievedUser.setFirst_name("Jane");
-        retrievedUser.setLast_name("Smith");
-        retrievedUser.setEmail("jsmith@madisoncollege.edu");
+        User newUser = new User();
+        newUser.setUsername("JSmith");
+        newUser.setFirst_name("Jane");
+        newUser.setLast_name("Smith");
+        newUser.setEmail("jsmith@madisoncollege.edu");
+        newUser.setBio("Just a gal that is not real");
 
-        int insertedUserId = userDao.insertUser(retrievedUser);
+        int insertedUserId = userDao.insert(newUser);
         Assertions.assertNotEquals(0, insertedUserId);
 
-        User insertedUser = userDao.getUserById(insertedUserId);
-        Assertions.assertEquals(2, insertedUser.getUser_id());
-        Assertions.assertEquals("Jane", insertedUser.getFirst_name());
-        Assertions.assertEquals("Smith", insertedUser.getLast_name());
-        Assertions.assertEquals("JSmith", insertedUser.getUsername());
-        Assertions.assertEquals("jsmith@madisoncollege.edu", insertedUser.getEmail());
+        User actualUser = userDao.getById(insertedUserId);
 
+        newUser.setUser_id(insertedUserId); // IMPORTANT so equals() passes
+        Assertions.assertEquals(newUser, actualUser);
     }
 
     /**
@@ -98,9 +98,13 @@ public class UserDaoTest {
     @Test
     public void delete() {
 
-        userDao.deleteUser(userDao.getUserById(1));
-        Assertions.assertNull(userDao.getUserById(1));
+        User userToDelete = userDao.getById(1);
+        Assertions.assertNotNull(userToDelete);
 
+        userDao.delete(userToDelete);
+
+        User deletedUser = userDao.getById(1);
+        Assertions.assertNull(deletedUser);
     }
 
     /**
@@ -109,8 +113,16 @@ public class UserDaoTest {
     @Test
     public void getAll() {
 
-        List<User> retrievedUsers = userDao.getAllUsers();
-        Assertions.assertEquals(1, retrievedUsers.size());
+        List<User> users = userDao.getAll();
+        Assertions.assertEquals(2, users.size());
+
+        User expectedUser = new User();
+        expectedUser.setUser_id(3);  // If you know the ID from cleandb.sql
+        expectedUser.setUsername("AnotherUser");
+        expectedUser.setFirst_name("Another");
+        expectedUser.setLast_name("User");
+        expectedUser.setEmail("another@example.com");
+        expectedUser.setBio("Some bio");
 
     }
 }

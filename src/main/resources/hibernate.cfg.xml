@@ -22,6 +22,8 @@
 
         <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.Post"/>
+        <mapping class="edu.matc.entity.Comment"/>
+        <mapping class="edu.matc.entity.Like"/>
 
     </session-factory>
 

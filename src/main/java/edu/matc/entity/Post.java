@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * The type Post.
  */
-@Entity(name = "Post")
+@Entity
 @Table(name = "posts")
 public class Post {
 
@@ -18,8 +18,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int post_id;
-
-
 
     @Column
     private String post_subject;

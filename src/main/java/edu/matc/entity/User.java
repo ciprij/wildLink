@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The type User.
@@ -59,7 +60,7 @@ public class User {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
-        this.bio = "";
+        this.bio = bio;
     }
 
     /**
@@ -204,6 +205,23 @@ public class User {
      * @param bio the bio
      */
     public void setBio(String bio) { this.bio = bio; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return username.equals(user.username)
+                && first_name.equals(user.first_name)
+                && last_name.equals(user.last_name)
+                && email.equals(user.email)
+                && (bio != null ? bio.equals(user.bio) : user.bio == null);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, first_name, last_name, email, bio);
+    }
 
     @Override
     public String toString() {

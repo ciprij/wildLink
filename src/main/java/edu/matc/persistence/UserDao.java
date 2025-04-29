@@ -28,7 +28,7 @@ public class UserDao {
      * @param id the id
      * @return the user by id
      */
-    public User getUserById(int id) {
+    public User getById(int id) {
 
         Session session = sessionFactory.openSession();
         User user = session.get(User.class, id);
@@ -42,7 +42,7 @@ public class UserDao {
      *
      * @param user the user
      */
-    public void updateUser(User user) {
+    public void update(User user) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -58,7 +58,7 @@ public class UserDao {
      * @param user the user
      * @return the int
      */
-    public int insertUser(User user) {
+    public int insert(User user) {
 
         int id = 0;
         Session session = sessionFactory.openSession();
@@ -76,7 +76,7 @@ public class UserDao {
      *
      * @param user the user
      */
-    public void deleteUser(User user) {
+    public void delete(User user) {
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -91,7 +91,7 @@ public class UserDao {
      *
      * @return the all user
      */
-    public List<User> getAllUsers() {
+    public List<User> getAll() {
 
         Session session = sessionFactory.openSession();
 

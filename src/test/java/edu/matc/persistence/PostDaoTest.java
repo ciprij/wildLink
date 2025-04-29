@@ -9,8 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * The type Post dao test.
@@ -21,6 +23,7 @@ class PostDaoTest {
      * The Post dao.
      */
     PostDao postDao;
+    GenericDao genericDao;
 
     /**
      * Sets up.
@@ -31,6 +34,7 @@ class PostDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
         postDao = new PostDao();
+        genericDao = new GenericDao(Post.class);
 
     }
 
@@ -39,15 +43,22 @@ class PostDaoTest {
      */
     @Test
     void getPostById() {
+        User expectedUser = new User();
+        expectedUser.setUser_id(1);
 
-        Post retrievedPost = postDao.getPostById(1);
-        Assertions.assertNotNull(retrievedPost);
-        Assertions.assertEquals(1, retrievedPost.getUser().getUser_id());
-        Assertions.assertEquals("Indoor Bouldering", retrievedPost.getPost_subject());
-        Assertions.assertEquals("Indoor bouldering is really fun, it is even better when done with a friend!",
-                retrievedPost.getPost_body());
+        Post expectedPost = new Post();
+        expectedPost.setPost_id(1);
+        expectedPost.setUser(expectedUser);
+        expectedPost.setPost_subject("Indoor Bouldering");
+        expectedPost.setPost_body("Indoor bouldering is really fun, it is even better when done with a friend!");
 
+        Post actualPost = (Post) genericDao.getById(1);
+
+        Assertions.assertEquals(expectedPost.getPost_subject(), actualPost.getPost_subject());
+        Assertions.assertEquals(expectedPost.getPost_body(), actualPost.getPost_body());
+        Assertions.assertEquals(expectedPost.getUser().getUser_id(), actualPost.getUser().getUser_id());
     }
+
 
     /**
      * Update post.
@@ -55,48 +66,53 @@ class PostDaoTest {
     @Test
     void updatePost() {
 
-        Post retrievedPost = postDao.getPostById(1);
+        Post retrievedPost = (Post)genericDao.getById(1);
         Assertions.assertNotNull(retrievedPost);
+
         retrievedPost.setPost_subject("TESTING");
         retrievedPost.setPost_body("TESTING TESTING");
-        postDao.updatePost(retrievedPost);
+        genericDao.update(retrievedPost);
 
-        Post actualPost = postDao.getPostById(1);
-        Assertions.assertEquals(retrievedPost.getPost_subject(), actualPost.getPost_subject());
-        Assertions.assertEquals(retrievedPost.getPost_body(), actualPost.getPost_body());
+        Post actualPost = (Post)genericDao.getById(1);
 
+        Assertions.assertEquals(retrievedPost, actualPost);
     }
 
     /**
-     * #TODO Not working as intended - rethink - the way the time is checked is causing issues, unable to run with Tomcat
      * Insert post.
+     */
 
     @Test
     void insertPost() {
+        PostDao postDao = new PostDao();
+        UserDao userDao = new UserDao();
+
+        User user = userDao.getById(1);
 
         Post newPost = new Post();
-
-        User user = new User();
-        user.setUser_id(1);
-
-        newPost.setUser(user);
+        newPost.setUser(user); // fully populated user
         newPost.setPost_subject("TESTING");
         newPost.setPost_body("TESTING TESTING");
         newPost.setDate_posted(Timestamp.valueOf(LocalDateTime.now()));
-        postDao.insertPost(newPost);
 
-        Timestamp expectedTimestamp = Timestamp.valueOf(LocalDateTime.now());
-        expectedTimestamp.setNanos(0);
+        int insertedPostId = postDao.insert(newPost);
 
-        Post actualPost = postDao.getPostById(4);
-        Assertions.assertEquals(actualPost.getDate_posted().toLocalDateTime().truncatedTo(ChronoUnit.SECONDS),
-                expectedTimestamp.toLocalDateTime().truncatedTo(ChronoUnit.SECONDS));
-        Assertions.assertEquals(actualPost.getPost_subject(), newPost.getPost_subject());
-        Assertions.assertEquals(actualPost.getPost_body(), newPost.getPost_body());
+        assertNotEquals(0, insertedPostId);
 
+        Post retrievedPost = postDao.getById(insertedPostId);
 
+        Post expectedPost = new Post();
+        expectedPost.setPost_id(insertedPostId);
+        expectedPost.setUser(user); // IMPORTANT: same user object
+        expectedPost.setPost_subject("TESTING");
+        expectedPost.setPost_body("TESTING TESTING");
+        expectedPost.setDate_posted(retrievedPost.getDate_posted());
+        // Match retrieved date, because LocalDateTime.now() might differ by milliseconds
+
+        assertEquals(expectedPost, retrievedPost);
     }
-     */
+
+
 
     /**
      * Delete post.
@@ -104,8 +120,8 @@ class PostDaoTest {
     @Test
         void deletePost() {
 
-        postDao.deletePost(postDao.getPostById(1));
-        Assertions.assertNull(postDao.getPostById(1));
+        genericDao.delete(genericDao.getById(1));
+        Assertions.assertNull(genericDao.getById(1));
 
     }
 
@@ -115,7 +131,7 @@ class PostDaoTest {
     @Test
     void getAllPosts() {
 
-        List<Post> posts = postDao.getAllPosts();
+        List<Post> posts = genericDao.getAll();
         Assertions.assertEquals(3, posts.size());
 
     }
