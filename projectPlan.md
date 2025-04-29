@@ -75,7 +75,6 @@
 #### Focus on user profile creation and remaining DB creation
 
 - [ ] Implement user profile creation (backend & database integration)
-- [ ] Implement profile editing functionality
 - [X] Create missing tables
 - [ ] Time log / weekly reflection  
 
@@ -96,7 +95,6 @@
 
 #### Focus on Admin & Moderation Tools  
 
-- [ ] Implement content moderation features  
 - [ ] Implement user management (ban/suspend users)  
 - [ ] Time log / weekly reflection  
 
@@ -106,9 +104,7 @@
 
 #### Testing & Refinements  
 
-- [ ] Conduct unit tests for user authentication and profile management  
-- [ ] Conduct integration testing for key workflows  
-- [ ] Validate data using Hibernate Validator  
+- [ ] Conduct unit tests for user
 - [ ] Time log / weekly reflection  
 
 ---
@@ -117,8 +113,8 @@
 
 #### Deployment & Staging  
 
-- [ ] Deploy the app to AWS (staging environment)  
-- [ ] Test performance and database queries
+- [X] Deploy the app to AWS (staging environment)  
+- [X] Test performance and database queries
 - [ ] Time log / weekly reflection  
 
 ---
@@ -127,7 +123,8 @@
 
 #### Security & Performance Optimization  
 
-- [ ] Test and refine AWS hosting configuration  
+- [ ] Test and refine AWS hosting configuration
+- [ ] Peer review
 - [ ] Time log / weekly reflection  
 
 ---
@@ -136,9 +133,7 @@
 
 #### Final MVP Testing & Debugging  
 
-- [ ] Perform end-to-end testing of all features  
-- [ ] Fix any outstanding bugs  
-- [ ] Implement final UI/UX refinements  
+- [ ] Perform end-to-end testing of all features
 - [ ] Time log / weekly reflection  
 
 ---
@@ -147,9 +142,5 @@
 
 #### Launch & Post-Launch Enhancements  
 
-- [ ] Public launch of WildLink  
-- [ ] Implement real-time trail condition updates  
-- [ ] Expand trip planning features using Google Maps API  
-- [ ] Enhance CI/CD pipeline using AWS CI tools  
-- [ ] Monitor application performance and user engagement  
+- [ ] Public launch of WildLink
 - [ ] Time log / final project reflection  

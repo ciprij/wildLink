@@ -31,6 +31,11 @@
             </form>
         </div>
 
+        <div class="container-sm justify-content-center text-center my-4">
+            <a href="addPost.jsp" class="btn btn-success btn-lg">Make a Post!</a>
+        </div>
+
+
         <div class="container-sm justify-content-center text-center border rounded bg-light my-4 p-4">
             <h3>Do you know what the weather is like for your next adventure?</h3>
             <form action="WeatherSearch" class="container-sm justify-content-center text-center my-4" method="get">
