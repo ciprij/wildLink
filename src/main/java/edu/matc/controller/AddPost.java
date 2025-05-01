@@ -35,7 +35,7 @@ public class AddPost extends HttpServlet {
 
         // Check if the user is logged in
         if (loggedInUser == null) {
-            response.sendRedirect("login.jsp");  // Redirect to login if not logged in
+            response.sendRedirect("logIn");  // Redirect to login if not logged in
             return;
         }
 

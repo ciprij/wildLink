@@ -110,21 +110,39 @@ get back on track by the start of the new week.
 
 ### Week 10 - 
 
+Tasks Completed:
+* added missing database tables to AWS
+* worked on team project
+
 ---
 
 ### Week 11 - 
+
+Tasks Completed:
+
+* worked on team project
 
 ---
 
 ### Week 12 - 
 
+Tasks Completed:
+
 ---
 
 ### Week 13 - 
 
+Tasks Completed:
+
 ---
 
 ### Week 14 - 
+
+Tasks Completed:
+
+* updated DAOs
+* Adding making a post functionality
+* worked on connecting cognito login to making a post
 
 ---
 
