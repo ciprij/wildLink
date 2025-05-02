@@ -60,8 +60,13 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO if properties weren't loaded properly, route to an error page
-        String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URL;
+        String state = req.getParameter("state");
+        if (state == null || state.isEmpty()) {
+            state = "index.jsp";  // fallback if not provided
+        }
+        String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID +
+                "&redirect_uri=" + REDIRECT_URL +
+                "&state=" + java.net.URLEncoder.encode(state, "UTF-8");
         resp.sendRedirect(url);
     }
 }

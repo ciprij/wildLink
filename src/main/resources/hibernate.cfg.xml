@@ -9,8 +9,8 @@
         <!-- database connection -->
         <property name="connection.url">jdbc:mysql://awseb-e-mcu2s8zp4c-stack-awsebrdsdatabase-kazxhqxh7ele.c78oygccg399.us-east-2.rds.amazonaws.com:3306/wildlink</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">student</property>
+        <property name="connection.username">student</property>
+        <property name="connection.password">student123</property>
 
         <!-- properties for connection pooling -->
         <property name="hibernate.c3p0.min_size">5</property>

@@ -37,6 +37,24 @@ public class UserDao {
 
     }
 
+    public User getByCognitoUsername(String cognitoUsername) {
+        Session session = sessionFactory.openSession();
+        User user = null;
+
+        try {
+            user = session.createQuery("from User where cognitoUsername = :username", User.class)
+                    .setParameter("username", cognitoUsername)
+                    .uniqueResult();
+        } catch (Exception e) {
+            logger.error("Error fetching user by Cognito username: ", e);
+        } finally {
+            session.close();
+        }
+
+        return user;
+    }
+
+
     /**
      * Save or update user.
      *

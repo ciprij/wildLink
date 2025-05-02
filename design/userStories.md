@@ -18,11 +18,11 @@ As a **user**, I want to **reset my password if I forget it**, so that I can reg
 
 ## Profile Management
 
-### Create Profile*
+### Create Profile
 
 As a **user**, I want to **create a profile with my outdoor interests, experience level, and location**, so that others can learn about my background.  
 
-### Edit Profile*
+### Edit Profile
 
 As a **user**, I want to **update my profile details**, so that I can keep my information accurate.  
 
@@ -54,11 +54,11 @@ As a **user**, I want to **send and receive direct messages**, so that I can com
 
 As a **user**, I want to **create posts with text, images, and location tags**, so that I can share my outdoor experiences.  
 
-### Comment & Like*
+### Comment & Like
 
 As a **user**, I want to **comment on and like other users' posts**, so that I can engage with the community.  
 
-### Edit or Delete Post* 
+### Edit or Delete Post
 
 As a **user**, I want to **edit or delete my own posts**, so that I can correct or remove outdated content.  
 
@@ -78,7 +78,7 @@ As a **user**, I want to **search for gear recommendations based on activity typ
 
 ## Admin & Moderation
 
-### Content Moderation* 
+### Content Moderation
 
 As an **admin**, I want to **review and remove inappropriate content**, so that the community remains safe and respectful.  
 

@@ -84,7 +84,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse);
-                req.setAttribute("userName", userName);
+                req.getSession().setAttribute("userName", userName);
+
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 //TODO forward to an error page
@@ -93,9 +94,14 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 //TODO forward to an error page
             }
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-        dispatcher.forward(req, resp);
+        // Retrieve the 'state' parameter from the request (Cognito should return it)
+        String state = req.getParameter("state");
+        if (state == null || state.isEmpty()) {
+            state = "index.jsp";  // Fallback if 'state' is not found
+        }
 
+        // After handling authentication, redirect the user back to the state URL (e.g., addPost.jsp, etc.)
+        resp.sendRedirect(state);
     }
 
     /**
@@ -143,7 +149,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         BigInteger modulus = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getN()));
         BigInteger exponent = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getE()));
 
-        // TODO the following is "happy path", what if the exceptions are caught?
         // Create a public key
         PublicKey publicKey = null;
         try {
@@ -163,6 +168,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         JWTVerifier verifier = JWT.require(algorithm)
                 .withIssuer(iss)
                 .withClaim("token_use", "id") // make sure you're verifying id token
+                .acceptLeeway(60) // Accept up to 60 seconds clock skew
                 .build();
 
         // Verify the token

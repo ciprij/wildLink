@@ -19,6 +19,9 @@ public class User {
     @GenericGenerator(name = "native", strategy = "native")
     private int user_id;
 
+    @Column(name = "username") // matches your DB column
+    private String cognitoUsername;
+
     @Column
     private String username;
 
@@ -99,6 +102,12 @@ public class User {
      */
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public String getCognitoUsername() { return cognitoUsername; }
+
+    public void setCognitoUsername(String cognitoUsername) {
+        this.cognitoUsername = cognitoUsername;
     }
 
     /**

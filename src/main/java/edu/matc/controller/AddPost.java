@@ -35,7 +35,9 @@ public class AddPost extends HttpServlet {
 
         // Check if the user is logged in
         if (loggedInUser == null) {
-            response.sendRedirect("logIn");  // Redirect to login if not logged in
+            String originalDestination = "addPost.jsp";
+            response.sendRedirect("logIn?state=" + java.net.URLEncoder.encode(originalDestination, "UTF-8"));
+
             return;
         }
 
@@ -53,11 +55,13 @@ public class AddPost extends HttpServlet {
         if (postId > 0) {
             try {
                 response.sendRedirect("index.jsp"); // Redirect to homepage after successful post creation
+                System.out.println("post added");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            response.sendRedirect("error.jsp"); // Redirect to error page if insertion failed
+            response.sendRedirect("addPost.jsp"); // Redirect to error page if insertion failed
+            System.out.println("post not added!");
         }
     }
 
