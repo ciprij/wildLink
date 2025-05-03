@@ -76,6 +76,20 @@ public class UserData {
         return user;
     }
 
+    /**
+     * Gets users by username using a LIKE clause for partial matches.
+     *
+     * @param username the username to search for
+     * @return list of matching users
+     */
+    public List<User> getUsersByUsername(String username) {
+        // Sanitize input to prevent SQL injection via Statement (prepared statements would be better)
+        String safeUsername = username.replace("'", "''");
+        String sql = "SELECT * FROM user WHERE username LIKE '%" + safeUsername + "%' ORDER BY username ASC";
+        return executeQuery(sql);
+    }
+
+
     public List<User> getUsersByPage(int page, int pageSize) {
         // Calculate the offset for the SQL query
         int offset = (page - 1) * pageSize;

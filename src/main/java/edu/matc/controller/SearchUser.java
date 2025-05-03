@@ -22,28 +22,38 @@ public class SearchUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserData userData = new UserData();
 
-        // Get the current page from the request (default to 1)
-        int page = 1;
-        if (req.getParameter("page") != null) {
-            try {
-                page = Integer.parseInt(req.getParameter("page"));
-            } catch (NumberFormatException e) {
-                page = 1; // Default to page 1 if the parameter is invalid
+        // Check if a username was submitted
+        String username = req.getParameter("username");
+
+        if (username != null && !username.trim().isEmpty()) {
+            // Search by username only
+            List<User> users = userData.getUsersByUsername(username.trim());
+            req.setAttribute("users", users);
+            req.setAttribute("searchQuery", username);
+            req.setAttribute("totalPages", 1);
+            req.setAttribute("currentPage", 1);
+        } else {
+            // Default to view all users paginated
+            int page = 1;
+            if (req.getParameter("page") != null) {
+                try {
+                    page = Integer.parseInt(req.getParameter("page"));
+                } catch (NumberFormatException e) {
+                    page = 1;
+                }
             }
+
+            List<User> users = userData.getUsersByPage(page, 25);
+            req.setAttribute("users", users);
+
+            int totalUsers = userData.getAllUsers().size();
+            int totalPages = (int) Math.ceil(totalUsers / 25.0);
+            req.setAttribute("totalPages", totalPages);
+            req.setAttribute("currentPage", page);
         }
 
-        // Get users for the current page (25 users per page)
-        List<User> users = userData.getUsersByPage(page, 25);
-        req.setAttribute("users", users);
-
-        // Calculate the total number of pages (total users divided by 25)
-        int totalUsers = userData.getAllUsers().size();  // Get the total count of users
-        int totalPages = (int) Math.ceil(totalUsers / 25.0);  // Calculate total pages
-        req.setAttribute("totalPages", totalPages);
-        req.setAttribute("currentPage", page);
-
-        // Forward the request to the results page
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
 }
+

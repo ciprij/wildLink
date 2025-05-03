@@ -6,7 +6,7 @@
   <nav>
     <ul class="nav justify-content-center">
       <li class="nav-item"><a class="nav-link text-white" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
-      <li class="nav-item"><a class="nav-link text-white" href="<%= request.getContextPath() %>/search.jsp">User Search</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="<%= request.getContextPath() %>/searchUser.jsp">Search User</a></li>
       <li class="nav-item"><a class="nav-link text-white" href="<%= request.getContextPath() %>/logIn">Login</a></li>
     </ul>
   </nav>

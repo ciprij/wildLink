@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,6 +104,7 @@ public class UserDao {
         session.close();
 
     }
+
 
     /**
      * Gets all user.

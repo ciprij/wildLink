@@ -143,6 +143,7 @@ Tasks Completed:
 * updated DAOs
 * Adding making a post functionality
 * worked on connecting cognito login to making a post
+* updated styling on index.jsp
 
 ---
 

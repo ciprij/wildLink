@@ -7,7 +7,7 @@
 
   <body>
 
-    <h2 class="text-center">All WildLink Users</h2>
+    <h2 class="text-center">Results</h2>
 
     <div class="d-flex justify-content-center">
       <table id="userTable" class="table table-striped table-bordered" style="width: 50%;">
