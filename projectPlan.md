@@ -84,7 +84,7 @@
 
 #### Focus on user posting
 
-- [ ] Implement post creation (text, image, location tag)
+- [ ] Implement post creation
 - [ ] Implement commenting and liking features
 - [ ] Implement post editing and deletion
 - [ ] Time log / weekly reflection  
@@ -95,7 +95,7 @@
 
 #### Focus on Admin & Moderation Tools  
 
-- [ ] Implement user management (ban/suspend users)  
+- [ ] Implement user management
 - [ ] Time log / weekly reflection  
 
 ---

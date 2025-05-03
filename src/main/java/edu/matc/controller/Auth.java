@@ -7,6 +7,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
+import edu.matc.persistence.UserDao;
 import edu.matc.utilities.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -173,15 +174,24 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
+
         String userName = jwt.getClaim("cognito:username").asString();
         logger.debug("here's the username: " + userName);
 
+        String email = jwt.getClaim("email").asString();
+        logger.debug("here's the email: " + email);
+
+        String givenName = jwt.getClaim("given_name").asString();
+        String familyName = jwt.getClaim("family_name").asString();
+        logger.debug("here's the name: " + givenName + " " + familyName);
+
         logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
+        // Call saveOrUpdateUserFromClaims method to update or save the user in the database
+        UserDao userDao = new UserDao();
+        userDao.insertFromClaims(userName, email, givenName, familyName);
 
-        return userName;
+        return "Username: " + userName + " Email: " + email + " Name: " + givenName + " " + familyName;
     }
 
     /** Create the auth url and use it to build the request.
@@ -241,7 +251,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * Read in the cognito props file and get/set the client id, secret, and required urls
      * for authenticating a user.
      */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
     private void loadProperties() {
         try {
             properties = loadProperties("/cognito.properties");
