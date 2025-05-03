@@ -15,7 +15,6 @@ import java.util.List;
 /**
  * A simple servlet to get a list of all users.
  */
-
 @WebServlet("/searchUser")
 public class SearchUser extends HttpServlet {
     @Override

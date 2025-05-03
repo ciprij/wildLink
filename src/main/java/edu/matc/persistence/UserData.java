@@ -18,6 +18,7 @@ import java.util.List;
 public class UserData {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
+
     /**
      * Gets all users.
      *
@@ -89,6 +90,13 @@ public class UserData {
     }
 
 
+    /**
+     * Gets users by page.
+     *
+     * @param page     the page
+     * @param pageSize the page size
+     * @return the users by page
+     */
     public List<User> getUsersByPage(int page, int pageSize) {
         // Calculate the offset for the SQL query
         int offset = (page - 1) * pageSize;

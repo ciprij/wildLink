@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * The type Log in.
+ */
 @WebServlet(
         urlPatterns = {"/logIn"}
 )
@@ -20,10 +23,22 @@ import java.util.Properties;
  *
  */
 public class LogIn extends HttpServlet implements PropertiesLoader {
+    /**
+     * The Properties.
+     */
     Properties properties;
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The constant CLIENT_ID.
+     */
     public static String CLIENT_ID;
+    /**
+     * The constant LOGIN_URL.
+     */
     public static String LOGIN_URL;
+    /**
+     * The constant REDIRECT_URL.
+     */
     public static String REDIRECT_URL;
 
     @Override

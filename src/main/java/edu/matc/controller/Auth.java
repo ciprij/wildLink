@@ -38,6 +38,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+/**
+ * The type Auth.
+ */
 @WebServlet(
         urlPatterns = {"/auth"}
 )
@@ -47,14 +50,41 @@ import java.util.stream.Collectors;
  */
 
 public class Auth extends HttpServlet implements PropertiesLoader {
+    /**
+     * The Properties.
+     */
     Properties properties;
+    /**
+     * The Client id.
+     */
     String CLIENT_ID;
+    /**
+     * The Client secret.
+     */
     String CLIENT_SECRET;
+    /**
+     * The Oauth url.
+     */
     String OAUTH_URL;
+    /**
+     * The Login url.
+     */
     String LOGIN_URL;
+    /**
+     * The Redirect url.
+     */
     String REDIRECT_URL;
+    /**
+     * The Region.
+     */
     String REGION;
+    /**
+     * The Pool id.
+     */
     String POOL_ID;
+    /**
+     * The Jwks.
+     */
     Keys jwks;
 
     private final Logger logger = LogManager.getLogger(this.getClass());

@@ -38,6 +38,12 @@ public class UserDao {
 
     }
 
+    /**
+     * Gets by username.
+     *
+     * @param username the username
+     * @return the by username
+     */
     public User getByUsername(String username) {
         Session session = sessionFactory.openSession();
         User user = null;
@@ -90,6 +96,14 @@ public class UserDao {
 
     }
 
+    /**
+     * Insert from claims.
+     *
+     * @param username  the username
+     * @param email     the email
+     * @param firstName the first name
+     * @param lastName  the last name
+     */
     public void insertFromClaims(String username, String email, String firstName, String lastName) {
         // Try to fetch the user by cognito username
         User existingUser = getByUsername(username);

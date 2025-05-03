@@ -12,11 +12,23 @@ import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.util.List;
 
+/**
+ * The type Post dao.
+ */
 public class PostDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Session factory.
+     */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
+    /**
+     * Gets by id.
+     *
+     * @param id the id
+     * @return the by id
+     */
     public Post getById(int id) {
 
         Session session = sessionFactory.openSession();
@@ -26,6 +38,11 @@ public class PostDao {
 
     }
 
+    /**
+     * Update.
+     *
+     * @param post the post
+     */
     public void update(Post post) {
 
         Session session = sessionFactory.openSession();
@@ -36,6 +53,12 @@ public class PostDao {
 
     }
 
+    /**
+     * Insert int.
+     *
+     * @param post the post
+     * @return the int
+     */
     public int insert(Post post) {
 
         int id = 0;
@@ -49,6 +72,11 @@ public class PostDao {
 
     }
 
+    /**
+     * Delete.
+     *
+     * @param post the post
+     */
     public void delete(Post post) {
 
         Session session = sessionFactory.openSession();
@@ -59,6 +87,11 @@ public class PostDao {
 
     }
 
+    /**
+     * Gets all.
+     *
+     * @return the all
+     */
     public List<Post> getAll() {
 
         Session session = sessionFactory.openSession();

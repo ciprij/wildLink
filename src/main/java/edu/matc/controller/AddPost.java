@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 
+/**
+ * The type Add post.
+ */
 @WebServlet("/addPost")
 public class AddPost extends HttpServlet {
     private static final long serialVersionUID = 1L;
