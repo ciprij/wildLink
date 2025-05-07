@@ -104,38 +104,34 @@ public class UserDao {
      * @param firstName the first name
      * @param lastName  the last name
      */
-    public void insertFromClaims(String username, String email, String firstName, String lastName) {
-        // Try to fetch the user by cognito username
+    public User insertFromClaims(String username, String email, String firstName, String lastName) {
         User existingUser = getByUsername(username);
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        // If the user doesn't exist, create a new one
+        User user;
         if (existingUser == null) {
-            User newUser = new User();
-            newUser.setUsername(username);
-            newUser.setEmail(email);
-            newUser.setFirst_name(firstName);
-            newUser.setLast_name(lastName);
-
-            // Insert the new user
-            session.persist(newUser);
-            transaction.commit();
+            user = new User();
+            user.setUsername(username);
+            user.setEmail(email);
+            user.setFirst_name(firstName);
+            user.setLast_name(lastName);
+            session.persist(user);
             logger.debug("Inserted new user with username: {}", username);
         } else {
-            // If the user exists, update their information
             existingUser.setEmail(email);
             existingUser.setFirst_name(firstName);
             existingUser.setLast_name(lastName);
-
-            // Update the existing user
             session.merge(existingUser);
-            transaction.commit();
+            user = existingUser;
             logger.debug("Updated user with username: {}", username);
         }
 
+        transaction.commit();
         session.close();
+
+        return user;
     }
 
     /**

@@ -35,6 +35,7 @@ public class AddPost extends HttpServlet {
         // Get the logged-in user (this assumes you're storing a user in the session)
         HttpSession session = request.getSession();
         User loggedInUser = (User) session.getAttribute("loggedInUser");
+        System.out.println("The logged in user is --> " + loggedInUser);
 
         // Check if the user is logged in
         if (loggedInUser == null) {

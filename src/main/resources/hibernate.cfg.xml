@@ -20,8 +20,7 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <!-- Disable JTA platform -->
-        <property name="hibernate.transaction.jta.platform">org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform</property>
+
 
         <mapping class="edu.matc.entity.User"/>
         <mapping class="edu.matc.entity.Post"/>
