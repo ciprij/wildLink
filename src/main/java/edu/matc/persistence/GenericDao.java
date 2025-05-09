@@ -116,7 +116,7 @@ public class GenericDao<T> {
      * Get entities where a property matches a specific value.
      *
      * @param propertyName the name of the property (e.g., "username", "email", "user.id")
-     * @param value the value to match
+     * @param value        the value to match
      * @return list of matching entities
      */
     public List<T> getByPropertyEqual(String propertyName, Object value) {
@@ -129,6 +129,13 @@ public class GenericDao<T> {
         return results;
     }
 
+    /**
+     * Gets by property like.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property like
+     */
     public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
         String hql = "from " + type.getName() + " where " + propertyName + " like :value";
@@ -139,6 +146,13 @@ public class GenericDao<T> {
         return results;
     }
 
+    /**
+     * Gets all paged.
+     *
+     * @param page     the page
+     * @param pageSize the page size
+     * @return the all paged
+     */
     public List<T> getAllPaged(int page, int pageSize) {
         Session session = getSession();
         List<T> results = session.createQuery("from " + type.getName(), type)
@@ -149,6 +163,11 @@ public class GenericDao<T> {
         return results;
     }
 
+    /**
+     * Gets session.
+     *
+     * @return the session
+     */
     protected Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }

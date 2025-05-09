@@ -7,13 +7,28 @@ import org.apache.logging.log4j.*;
 
 import java.util.List;
 
+/**
+ * The type User dao.
+ */
 public class UserDao extends GenericDao<User> {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Instantiates a new User dao.
+     */
     public UserDao() {
         super(User.class);
     }
 
+    /**
+     * Insert from claims user.
+     *
+     * @param username  the username
+     * @param email     the email
+     * @param firstName the first name
+     * @param lastName  the last name
+     * @return the user
+     */
     public User insertFromClaims(String username, String email, String firstName, String lastName) {
         List<User> users = getByPropertyEqual("username", username);
         User existingUser = users.isEmpty() ? null : users.get(0);

@@ -19,6 +19,9 @@ public class PostDao extends GenericDao<Post> {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Instantiates a new Post dao.
+     */
     public PostDao() {
         super(Post.class);
     }
