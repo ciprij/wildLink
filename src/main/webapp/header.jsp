@@ -1,37 +1,34 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="edu.matc.entity.User" %>
-<%@include file="taglib.jsp"%>
-<%@include file="head.jsp"%>
-
-<%
-  User loggedInUser = (User) session.getAttribute("loggedInUser");
-%>
+<%@ include file="taglib.jsp" %>
+<%@ include file="head.jsp" %>
 
 <header class="bg-primary text-white text-center py-3">
   <h1>WildLink</h1>
 
-  <% if (loggedInUser != null) { %>
-  <p class="mb-1">Hi, <%= loggedInUser.getUsername() %>!</p>
-  <% } %>
+  <c:if test="${not empty sessionScope.loggedInUser}">
+    <p class="mb-1">Hi, ${sessionScope.loggedInUser.username}!</p>
+  </c:if>
 
   <nav>
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link text-white" href="<%= request.getContextPath() %>/index.jsp">Home</a>
+        <a class="nav-link text-white" href="${pageContext.request.contextPath}/index.jsp">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="<%= request.getContextPath() %>/searchUser.jsp">Search User</a>
+        <a class="nav-link text-white" href="${pageContext.request.contextPath}/searchUser.jsp">Search User</a>
       </li>
 
-      <% if (loggedInUser == null) { %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="<%= request.getContextPath() %>/logIn">Login</a>
-      </li>
-      <% } else { %>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="<%= request.getContextPath() %>/logout">Logout</a>
-      </li>
-      <% } %>
+      <c:choose>
+        <c:when test="${empty sessionScope.loggedInUser}">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/logIn">Login</a>
+          </li>
+        </c:when>
+        <c:otherwise>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/logout">Logout</a>
+          </li>
+        </c:otherwise>
+      </c:choose>
     </ul>
   </nav>
 </header>

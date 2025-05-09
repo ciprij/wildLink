@@ -24,21 +24,6 @@ public class UserDao {
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     /**
-     * Gets user by id.
-     *
-     * @param id the id
-     * @return the user by id
-     */
-    public User getById(int id) {
-
-        Session session = sessionFactory.openSession();
-        User user = session.get(User.class, id);
-        session.close();
-        return user;
-
-    }
-
-    /**
      * Gets by username.
      *
      * @param username the username
@@ -59,41 +44,6 @@ public class UserDao {
         }
 
         return user;
-    }
-
-
-    /**
-     * Save or update user.
-     *
-     * @param user the user
-     */
-    public void update(User user) {
-
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.merge(user);
-        transaction.commit();
-        session.close();
-
-    }
-
-    /**
-     * Insert user int.
-     *
-     * @param user the user
-     * @return the int
-     */
-    public int insert(User user) {
-
-        int id = 0;
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.persist(user);
-        transaction.commit();
-        id = user.getUser_id();
-        session.close();
-        return id;
-
     }
 
     /**
@@ -133,22 +83,6 @@ public class UserDao {
 
         return user;
     }
-
-    /**
-     * Delete user.
-     *
-     * @param user the user
-     */
-    public void delete(User user) {
-
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.delete(user);
-        transaction.commit();
-        session.close();
-
-    }
-
 
     /**
      * Gets all user.

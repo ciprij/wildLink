@@ -74,6 +74,10 @@
                         <p><strong>Condition:</strong> ${weatherData.current.condition.text}</p>
                         <p><strong>Wind:</strong> ${weatherData.current.windMph} mph from the ${weatherData.current.windDir}</p>
                         <p><strong>Humidity:</strong> ${weatherData.current.humidity}%</p>
+
+                        <p class="text-muted small mt-3">
+                            Weather data provided by <a href="https://www.weatherapi.com/" target="_blank" rel="noopener noreferrer">WeatherAPI.com</a>
+                        </p>
                     </c:if>
                 </div>
             </div>
