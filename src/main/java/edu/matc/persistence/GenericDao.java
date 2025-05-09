@@ -129,6 +129,26 @@ public class GenericDao<T> {
         return results;
     }
 
+    public List<T> getByPropertyLike(String propertyName, String value) {
+        Session session = getSession();
+        String hql = "from " + type.getName() + " where " + propertyName + " like :value";
+        List<T> results = session.createQuery(hql, type)
+                .setParameter("value", "%" + value + "%")
+                .getResultList();
+        session.close();
+        return results;
+    }
+
+    public List<T> getAllPaged(int page, int pageSize) {
+        Session session = getSession();
+        List<T> results = session.createQuery("from " + type.getName(), type)
+                .setFirstResult((page - 1) * pageSize)
+                .setMaxResults(pageSize)
+                .getResultList();
+        session.close();
+        return results;
+    }
+
     protected Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }

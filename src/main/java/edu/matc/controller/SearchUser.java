@@ -1,14 +1,12 @@
 package edu.matc.controller;
 
 import edu.matc.entity.User;
-import edu.matc.persistence.UserData;
+import edu.matc.persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.annotation.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,36 +15,35 @@ import java.util.List;
  */
 @WebServlet("/searchUser")
 public class SearchUser extends HttpServlet {
+    private static final int PAGE_SIZE = 25;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserData userData = new UserData();
+        UserDao userDao = new UserDao();
 
-        // Check if a username was submitted
         String username = req.getParameter("username");
 
         if (username != null && !username.trim().isEmpty()) {
-            // Search by username only
-            List<User> users = userData.getUsersByUsername(username.trim());
+            // Search by username using LIKE
+            List<User> users = userDao.getByPropertyLike("username", username.trim());
             req.setAttribute("users", users);
             req.setAttribute("searchQuery", username);
             req.setAttribute("totalPages", 1);
             req.setAttribute("currentPage", 1);
         } else {
-            // Default to view all users paginated
+            // Paginated user view
             int page = 1;
             if (req.getParameter("page") != null) {
                 try {
                     page = Integer.parseInt(req.getParameter("page"));
-                } catch (NumberFormatException e) {
-                    page = 1;
-                }
+                } catch (NumberFormatException ignored) {}
             }
 
-            List<User> users = userData.getUsersByPage(page, 25);
+            List<User> users = userDao.getAllPaged(page, PAGE_SIZE);
             req.setAttribute("users", users);
 
-            int totalUsers = userData.getAllUsers().size();
-            int totalPages = (int) Math.ceil(totalUsers / 25.0);
+            int totalUsers = userDao.getAll().size();
+            int totalPages = (int) Math.ceil(totalUsers / (double) PAGE_SIZE);
             req.setAttribute("totalPages", totalPages);
             req.setAttribute("currentPage", page);
         }
@@ -55,4 +52,3 @@ public class SearchUser extends HttpServlet {
         dispatcher.forward(req, resp);
     }
 }
-

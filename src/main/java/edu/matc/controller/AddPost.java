@@ -32,7 +32,7 @@ public class AddPost extends HttpServlet {
         String postSubject = request.getParameter("title");
         String postBody = request.getParameter("content");
 
-        // Get the logged-in user (this assumes you're storing a user in the session)
+        // Get the logged-in user
         HttpSession session = request.getSession();
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         System.out.println("The logged in user is --> " + loggedInUser);
