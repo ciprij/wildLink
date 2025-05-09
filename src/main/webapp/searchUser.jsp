@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp"%>
 <c:set var="title" value="Search User" />
 <%@include file="head.jsp"%>
@@ -14,7 +14,8 @@
 
                 <form action="${pageContext.request.contextPath}/searchUser" method="get" class="row g-2 justify-content-center mt-2">
                     <div class="col-md-4 col-sm-6">
-                        <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter username" required>
+                        <label for="username"></label>
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-outline-primary">Search</button>

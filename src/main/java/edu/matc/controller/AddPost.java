@@ -57,15 +57,11 @@ public class AddPost extends HttpServlet {
 
         // Check if the post was created successfully
         if (postId > 0) {
-            try {
-                response.sendRedirect("index.jsp"); // Redirect to homepage after successful post creation
-                System.out.println("post added");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            Post insertedPost = postDao.getById(postId);
+            request.setAttribute("post", insertedPost);
+            request.getRequestDispatcher("/viewPost.jsp").forward(request, response);
         } else {
             response.sendRedirect("addPost.jsp"); // Redirect to error page if insertion failed
-            System.out.println("post not added!");
         }
     }
 
