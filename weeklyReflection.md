@@ -148,7 +148,17 @@ Tasks Completed:
 ---
 
 ### Week 15 - 
+Tasks Completed:
 
+* finished configuring GenericDao
+* refactored remaining DAOs
+* deleted UserData (was no longer needed with GenericDao implementation)
+* resolved cognito login issue / session tracking
+* added LogOut servlet
+* finished post making functionality
+* added credit snippet for weather api call on index.jsp
+* added viewPost.jsp to show the successful post
+* peer review feedback
 ---
 
 ### Week 16 - 
