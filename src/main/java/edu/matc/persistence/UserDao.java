@@ -2,36 +2,23 @@ package edu.matc.persistence;
 
 import edu.matc.entity.User;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.apache.logging.log4j.*;
 
+import java.util.List;
+
 public class UserDao extends GenericDao<User> {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     public UserDao() {
         super(User.class);
     }
 
-    public User getByUsername(String username) {
-        Session session = sessionFactory.getCurrentSession();
-        User user = null;
-        try {
-            user = session.createQuery("from User where username = :username", User.class)
-                    .setParameter("username", username)
-                    .uniqueResult();
-        } catch (Exception e) {
-            logger.error("Error fetching user by username: ", e);
-        } finally {
-            session.close();
-        }
-        return user;
-    }
-
     public User insertFromClaims(String username, String email, String firstName, String lastName) {
-        User existingUser = getByUsername(username);
-        Session session = sessionFactory.openSession();
+        List<User> users = getByPropertyEqual("username", username);
+        User existingUser = users.isEmpty() ? null : users.get(0);
+
+        Session session = getSession();
         Transaction transaction = session.beginTransaction();
 
         User user;

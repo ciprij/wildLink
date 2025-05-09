@@ -72,9 +72,8 @@ public class GenericDao<T> {
 
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(entity);
-        transaction.commit();
         int id = (int) session.save(entity);
+        transaction.commit();
         session.close();
         return id;
 
@@ -113,7 +112,24 @@ public class GenericDao<T> {
 
     }
 
-    private Session getSession() {
+    /**
+     * Get entities where a property matches a specific value.
+     *
+     * @param propertyName the name of the property (e.g., "username", "email", "user.id")
+     * @param value the value to match
+     * @return list of matching entities
+     */
+    public List<T> getByPropertyEqual(String propertyName, Object value) {
+        Session session = getSession();
+        String hql = "from " + type.getName() + " where " + propertyName + " = :value";
+        List<T> results = session.createQuery(hql, type)
+                .setParameter("value", value)
+                .getResultList();
+        session.close();
+        return results;
+    }
+
+    protected Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
 }

@@ -34,7 +34,7 @@ public class UserData {
     /**
      * Execute query list.
      *
-     * @param sql the sql
+     * @param sql the sql0
      * @return the list
      */
     public List<User> executeQuery(String sql) {
