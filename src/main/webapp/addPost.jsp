@@ -5,6 +5,26 @@
 <%@include file="header.jsp" %>
 
 <html>
+
+    <script>
+        // Bootstrap validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                const forms = document.querySelectorAll('.needs-validation');
+                Array.prototype.slice.call(forms).forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
     <body>
 
         <div class="container-sm justify-content-center border rounded bg-light my-4 p-4">

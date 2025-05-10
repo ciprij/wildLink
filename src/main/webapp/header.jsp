@@ -13,19 +13,21 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="${pageContext.request.contextPath}/index.jsp">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="${pageContext.request.contextPath}/searchUser.jsp">Search User</a>
-      </li>
-
       <c:choose>
         <c:when test="${empty sessionScope.loggedInUser}">
           <li class="nav-item">
-            <a class="nav-link text-white" href="${pageContext.request.contextPath}/logIn">Login</a>
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/logIn">Login/Sign up</a>
           </li>
         </c:when>
         <c:otherwise>
           <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/addPost.jsp">Create Post</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" href="${pageContext.request.contextPath}/postFeed">Post Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/searchUser.jsp">Search User</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="${pageContext.request.contextPath}/logout">Logout</a>
