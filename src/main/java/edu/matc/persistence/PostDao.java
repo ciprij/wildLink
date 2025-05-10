@@ -25,4 +25,10 @@ public class PostDao extends GenericDao<Post> {
     public PostDao() {
         super(Post.class);
     }
+
+    public List<Post> getAllPostsSortedByDateDesc() {
+        Session session = getSession();
+        return session.createQuery("FROM Post ORDER BY date_posted DESC", Post.class).list();
+    }
+
 }

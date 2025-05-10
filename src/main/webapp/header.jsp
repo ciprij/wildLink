@@ -25,6 +25,9 @@
         </c:when>
         <c:otherwise>
           <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/postFeed">Post Feed</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" href="${pageContext.request.contextPath}/logout">Logout</a>
           </li>
         </c:otherwise>
