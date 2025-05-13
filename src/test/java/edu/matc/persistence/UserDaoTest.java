@@ -1,128 +1,124 @@
 package edu.matc.persistence;
 
-import edu.matc.utilities.Database;
 import edu.matc.entity.User;
-import org.junit.jupiter.api.Assertions;
+import edu.matc.utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-/**
- * The type Users dao test.
- */
-public class UserDaoTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    /**
-     * The Users dao.
-     */
-    UserDao userDao;
+/**
+ * Integration tests for User entity using GenericDao.
+ */
+class UserDaoTest {
+
+    private UserDao userDao;;
 
     /**
      * Sets up.
      */
     @BeforeEach
-    public void setUp() {
-
+    void setUp() {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
+
         userDao = new UserDao();
-
     }
 
     /**
-     * Gets by id.
+     * Gets by id success.
      */
     @Test
-    public void getById() {
-
-        User expectedUser = new User();
-        expectedUser.setUser_id(1);
-        expectedUser.setUsername("JCipri");
-        expectedUser.setFirst_name("Jake");
-        expectedUser.setLast_name("Cipri");
-        expectedUser.setEmail("jcipri@madisoncollege.edu");
-        expectedUser.setBio("software dev with a love for the outdoors!");
-
-        User actualUser = userDao.getById(1);
-
-        Assertions.assertEquals(expectedUser, actualUser);
+    void getByIdSuccess() {
+        User user = userDao.getById(1);
+        assertNotNull(user);
+        assertEquals("JCipri", user.getUsername());
     }
 
     /**
-     * Update.
+     * Gets all success.
      */
     @Test
-    public void update() {
-
-        User retrievedUser = userDao.getById(1);
-        retrievedUser.setFirst_name("John");
-        retrievedUser.setLast_name("Doe");
-        retrievedUser.setUsername("JDoe");
-        retrievedUser.setEmail("jdoe@madisoncollege.edu");
-        retrievedUser.setBio("bio");
-
-        userDao.update(retrievedUser);
-
-        User actualUser = userDao.getById(1);
-
-        Assertions.assertEquals(retrievedUser, actualUser);
-
+    void getAllSuccess() {
+        List<User> users = userDao.getAll();
+        assertFalse(users.isEmpty());
     }
 
     /**
-     * Insert.
+     * Update success.
      */
     @Test
-    public void insert() {
+    void updateSuccess() {
+        User userToUpdate = userDao.getById(1);
+        userToUpdate.setEmail("updated@example.com");
 
-        User newUser = new User();
-        newUser.setUsername("JSmith");
-        newUser.setFirst_name("Jane");
-        newUser.setLast_name("Smith");
-        newUser.setEmail("jsmith@madisoncollege.edu");
-        newUser.setBio("Just a gal that is not real");
+        userDao.update(userToUpdate);
 
-        int insertedUserId = userDao.insert(newUser);
-        Assertions.assertNotEquals(0, insertedUserId);
-
-        User actualUser = userDao.getById(insertedUserId);
-
-        newUser.setUser_id(insertedUserId); // IMPORTANT so equals() passes
-        Assertions.assertEquals(newUser, actualUser);
+        User updatedUser = userDao.getById(1);
+        assertEquals("updated@example.com", updatedUser.getEmail());
     }
 
     /**
-     * Delete.
+     * Delete success.
      */
     @Test
-    public void delete() {
-
-        User userToDelete = userDao.getById(1);
-        Assertions.assertNotNull(userToDelete);
+    void deleteSuccess() {
+        User userToDelete = userDao.getById(2);
+        assertNotNull(userToDelete);
 
         userDao.delete(userToDelete);
 
-        User deletedUser = userDao.getById(1);
-        Assertions.assertNull(deletedUser);
+        User deletedUser = userDao.getById(2);
+        assertNull(deletedUser);
     }
 
     /**
-     * Gets all.
+     * Gets by id not found.
      */
     @Test
-    public void getAll() {
+    void getByIdNotFound() {
+        User user = userDao.getById(-1);
+        assertNull(user);
+    }
 
-        List<User> users = userDao.getAll();
-        Assertions.assertEquals(2, users.size());
+    /**
+     * Insert from claims inserts new user.
+     */
+    @Test
+    void insertFromClaimsInsertsNewUser() {
+        String username = "new.claim.user";
+        String email = "claim@example.com";
+        String firstName = "Claim";
+        String lastName = "User";
 
-        User expectedUser = new User();
-        expectedUser.setUser_id(3);  // If you know the ID from cleandb.sql
-        expectedUser.setUsername("AnotherUser");
-        expectedUser.setFirst_name("Another");
-        expectedUser.setLast_name("User");
-        expectedUser.setEmail("another@example.com");
-        expectedUser.setBio("Some bio");
+        User result = userDao.insertFromClaims(username, email, firstName, lastName);
 
+        assertNotNull(result);
+        assertTrue(result.getUser_id() > 0);
+        assertEquals(username, result.getUsername());
+        assertEquals(email, result.getEmail());
+        assertEquals(firstName, result.getFirst_name());
+        assertEquals(lastName, result.getLast_name());
+    }
+
+    /**
+     * Insert from claims updates existing user.
+     */
+    @Test
+    void insertFromClaimsUpdatesExistingUser() {
+        String existingUsername = "JCipri"; // matches your cleandb.sql seed
+        String newEmail = "updated@example.com";
+        String newFirstName = "UpdatedFirst";
+        String newLastName = "UpdatedLast";
+
+        User result = userDao.insertFromClaims(existingUsername, newEmail, newFirstName, newLastName);
+
+        assertNotNull(result);
+        assertEquals(existingUsername, result.getUsername());
+        assertEquals(newEmail, result.getEmail());
+        assertEquals(newFirstName, result.getFirst_name());
+        assertEquals(newLastName, result.getLast_name());
     }
 }

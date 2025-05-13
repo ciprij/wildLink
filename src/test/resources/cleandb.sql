@@ -39,6 +39,8 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` (post_id, comment_body, comment_timestamp) VALUES(1, 'Love this post! Very true.', '2025-03-01 10:30:00'),(1, 'Agreed. Climbing with friends is the best!', '2025-03-02 11:00:00'),(2, 'Outdoor routes are more challenging.', '2025-03-03 14:15:00'),(3, 'Can confirm—shoes make a difference.', '2025-03-04 09:45:00');
+
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,6 +67,8 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+INSERT INTO `likes` (post_id, like_total) VALUES(1, 3),(2, 5),(3, 2);
+
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
 

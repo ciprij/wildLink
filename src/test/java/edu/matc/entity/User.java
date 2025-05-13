@@ -12,7 +12,7 @@ import java.util.Objects;
  * The type User.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "user") // case-sensitive!
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -211,11 +211,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(username, user.username)
-                && Objects.equals(first_name, user.first_name)
-                && Objects.equals(last_name, user.last_name)
-                && Objects.equals(email, user.email)
-                && Objects.equals(bio, user.bio);
+        return username.equals(user.username)
+                && first_name.equals(user.first_name)
+                && last_name.equals(user.last_name)
+                && email.equals(user.email)
+                && (bio != null ? bio.equals(user.bio) : user.bio == null);
     }
 
     @Override
