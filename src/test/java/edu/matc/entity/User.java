@@ -104,7 +104,6 @@ public class User {
     /**
      * Gets user id.
      *
-     *
      * @return the user id
      */
     public int getUser_id() {

@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Post feed.
+ */
 @WebServlet("/postFeed")
 public class PostFeed extends HttpServlet {
     @Override

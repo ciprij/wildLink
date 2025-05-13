@@ -13,39 +13,39 @@ public class Response{
 	@JsonProperty("location")
 	private Location location;
 
-	/**
-	 * Set current.
-	 *
-	 * @param current the current
-	 */
-	public void setCurrent(Current current){
+    /**
+     * Set current.
+     *
+     * @param current the current
+     */
+    public void setCurrent(Current current){
 		this.current = current;
 	}
 
-	/**
-	 * Get current current.
-	 *
-	 * @return the current
-	 */
-	public Current getCurrent(){
+    /**
+     * Get current current.
+     *
+     * @return the current
+     */
+    public Current getCurrent(){
 		return current;
 	}
 
-	/**
-	 * Set location.
-	 *
-	 * @param location the location
-	 */
-	public void setLocation(Location location){
+    /**
+     * Set location.
+     *
+     * @param location the location
+     */
+    public void setLocation(Location location){
 		this.location = location;
 	}
 
-	/**
-	 * Get location location.
-	 *
-	 * @return the location
-	 */
-	public Location getLocation(){
+    /**
+     * Get location location.
+     *
+     * @return the location
+     */
+    public Location getLocation(){
 		return location;
 	}
 

@@ -108,7 +108,7 @@ class UserDaoTest {
      */
     @Test
     void insertFromClaimsUpdatesExistingUser() {
-        String existingUsername = "JCipri"; // matches your cleandb.sql seed
+        String existingUsername = "JCipri";
         String newEmail = "updated@example.com";
         String newFirstName = "UpdatedFirst";
         String newLastName = "UpdatedLast";
