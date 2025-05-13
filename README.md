@@ -21,7 +21,7 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 * Database
   * MySQL 8.x
 * ORM Framework
-  * Hibernate Version TBD
+  * Hibernate
 * Dependency Management
   * Maven
 * Web Services consumed using Java
@@ -30,7 +30,6 @@ WildLink aims to solve this problem by providing a dedicated social networking p
   * Bootstrap
 * Data Validation
   * Bootstrap Validator for front end
-  * Explore Hibernate Validator?
 * Logging
   * Log4J2
 * Hosting
@@ -38,9 +37,6 @@ WildLink aims to solve this problem by providing a dedicated social networking p
 * Tech I'd like to explore as part of this work
   * CI tools in AWS
   * WeatherAPI
-  * Hibernate Validator
-  * Hibernate Search
-* Project Lombok
 * Unit Testing
   * JUnit tests to cover all testable logic
 * IDE: IntelliJ IDEA
