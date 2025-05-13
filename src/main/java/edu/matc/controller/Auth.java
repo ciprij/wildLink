@@ -120,9 +120,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<?> response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
 
-        logger.debug("Response headers: " + response.headers().toString());
-        logger.debug("Response body: " + response.body().toString());
-
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(response.body().toString(), TokenResponse.class);
     }
@@ -170,6 +167,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         HttpSession session = req.getSession();
         session.setAttribute("loggedInUser", loggedInUser);
+        session.setAttribute("userId", loggedInUser.getUser_id());
 
         return userName;
     }
