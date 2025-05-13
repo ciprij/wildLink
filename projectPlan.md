@@ -74,9 +74,9 @@
 
 #### Focus on user profile creation and remaining DB creation
 
-- [ ] Implement user profile creation (backend & database integration)
+- [X] Implement user profile creation (backend & database integration)
 - [X] Create missing tables
-- [ ] Time log / weekly reflection  
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -84,19 +84,15 @@
 
 #### Focus on user posting
 
-- [ ] Implement post creation
-- [ ] Implement commenting and liking features
+- [X] Implement post creation
 - [ ] Implement post editing and deletion
-- [ ] Time log / weekly reflection  
+- [X] Time log / weekly reflection  
 
 ---
 
-### Week 11  
+### Week 11
 
-#### Focus on Admin & Moderation Tools  
-
-- [ ] Implement user management
-- [ ] Time log / weekly reflection  
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -104,8 +100,8 @@
 
 #### Testing & Refinements  
 
-- [ ] Conduct unit tests for user
-- [ ] Time log / weekly reflection  
+- [X] Conduct unit tests for user
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -115,7 +111,7 @@
 
 - [X] Deploy the app to AWS (staging environment)  
 - [X] Test performance and database queries
-- [ ] Time log / weekly reflection  
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -123,9 +119,9 @@
 
 #### Security & Performance Optimization  
 
-- [ ] Test and refine AWS hosting configuration
-- [ ] Peer review
-- [ ] Time log / weekly reflection  
+- [X] Test and refine AWS hosting configuration
+- [X] Peer review
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -142,5 +138,5 @@
 
 #### Launch & Post-Launch Enhancements  
 
-- [ ] Public launch of WildLink
+- [ ] Complete final touches
 - [ ] Time log / final project reflection  

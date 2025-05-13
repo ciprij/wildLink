@@ -58,7 +58,7 @@ As a **user**, I want to **create posts with text, images, and location tags**, 
 
 As a **user**, I want to **comment on and like other users' posts**, so that I can engage with the community.  
 
-### Edit or Delete Post
+### Edit or Delete Post*
 
 As a **user**, I want to **edit or delete my own posts**, so that I can correct or remove outdated content.  
 

@@ -128,11 +128,18 @@ Tasks Completed:
 
 Tasks Completed:
 
+* worked on team project
+* completed team project
+* presented
+
 ---
 
 ### Week 13 - 
 
 Tasks Completed:
+* work on refining what I can realistically get done by the end of the semester
+* work on project for UI/UX
+* get some refinement done on indie project
 
 ---
 
