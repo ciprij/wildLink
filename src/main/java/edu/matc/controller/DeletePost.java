@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Delete post.
+ */
 @WebServlet("/deletePost")
 public class DeletePost extends HttpServlet {
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int postId = Integer.parseInt(req.getParameter("postId"));
         int sessionUserId = (int) req.getSession().getAttribute("userId");
@@ -25,5 +29,6 @@ public class DeletePost extends HttpServlet {
 
         resp.sendRedirect("postFeed.jsp");
     }
+
 }
 

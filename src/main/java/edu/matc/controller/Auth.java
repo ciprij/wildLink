@@ -83,6 +83,10 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
+/**
+ * Initializes servlet by loading properties and JWKS keys.
+ * @throws ServletException if initialization fails
+ */
     public void init() throws ServletException {
         super.init();
         loadProperties();
@@ -90,32 +94,44 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     }
 
     @Override
+/**
+ * Handles the authentication callback from Cognito.
+ * Verifies the token, retrieves user info, and sets session attributes.
+ * @param req the HttpServletRequest
+ * @param resp the HttpServletResponse
+ * @throws ServletException if servlet error occurs
+ * @throws IOException if I/O error occurs
+ */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
         String userName = null;
 
-        if (authCode == null) {
-        } else {
+        if (authCode != null) {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse, req);
                 req.getSession().setAttribute("userName", userName);
-            } catch (IOException e) {
-                logger.error("Error getting or validating the token: " + e.getMessage(), e);
-            } catch (InterruptedException e) {
-                logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
+            } catch (IOException | InterruptedException e) {
+                logger.error("Error handling token: " + e.getMessage(), e);
             }
         }
 
         String state = req.getParameter("state");
         if (state == null || state.isEmpty()) {
-            state = "index.jsp";  // Fallback if 'state' is not found
+            state = "index.jsp";
         }
 
         resp.sendRedirect(state);
     }
 
+    /**
+     * Exchanges the auth request for an access token from Cognito.
+     * @param authRequest the HTTP request to Cognito's token endpoint
+     * @return the TokenResponse from Cognito
+     * @throws IOException if network error occurs
+     * @throws InterruptedException if request is interrupted
+     */
     private TokenResponse getToken(HttpRequest authRequest) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<?> response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
@@ -124,6 +140,13 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         return mapper.readValue(response.body().toString(), TokenResponse.class);
     }
 
+    /**
+     * Validates the Cognito ID token, extracts user info, and stores the user in session.
+     * @param tokenResponse the token response containing ID token
+     * @param req the servlet request
+     * @return the Cognito username
+     * @throws IOException if decoding token fails
+     */
     private String validate(TokenResponse tokenResponse, HttpServletRequest req) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
@@ -142,7 +165,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         }
 
         Algorithm algorithm = Algorithm.RSA256((RSAPublicKey) publicKey, null);
-
         String iss = String.format("https://cognito-idp.%s.amazonaws.com/%s", REGION, POOL_ID);
 
         JWTVerifier verifier = JWT.require(algorithm)
@@ -160,7 +182,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         logger.debug("User info - Username: {} Email: {} Name: {} {}", userName, email, givenName, familyName);
 
-        // Insert or update user in the database
         UserDao userDao = new UserDao();
         User loggedInUser = userDao.insertFromClaims(userName, email, givenName, familyName);
         System.out.println("The logged in user is --> " + loggedInUser);
@@ -172,6 +193,11 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         return userName;
     }
 
+    /**
+     * Builds the HTTP request to exchange an auth code for a token.
+     * @param authCode the authorization code received from Cognito
+     * @return the constructed HttpRequest
+     */
     private HttpRequest buildAuthRequest(String authCode) {
         String keys = CLIENT_ID + ":" + CLIENT_SECRET;
 
@@ -193,6 +219,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 .POST(HttpRequest.BodyPublishers.ofString(form)).build();
     }
 
+    /**
+     * Loads the JWKS key set used to verify the token signature.
+     */
     private void loadKey() {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -209,6 +238,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         }
     }
 
+    /**
+     * Loads the Cognito-related properties from the classpath.
+     */
     private void loadProperties() {
         try {
             properties = loadProperties("/cognito.properties");

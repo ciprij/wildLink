@@ -1204,3 +1204,11 @@ com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized f
 [2025-05-12 21:59:23.773] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
 [2025-05-12 22:13:48.252] [DEBUG] [main] UserDao - Updated user with username: JCipri
 [2025-05-12 22:13:48.847] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-12 22:14:04.727] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-12 22:14:05.223] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-12 22:14:11.382] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-12 22:21:21.854] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-12 22:21:22.399] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-12 22:21:37.130] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-12 22:21:37.545] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-12 22:21:43.544] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
