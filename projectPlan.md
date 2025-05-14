@@ -85,7 +85,7 @@
 #### Focus on user posting
 
 - [X] Implement post creation
-- [ ] Implement post editing and deletion
+- [X] Implement post editing and deletion
 - [X] Time log / weekly reflection  
 
 ---
@@ -129,8 +129,8 @@
 
 #### Final MVP Testing & Debugging  
 
-- [ ] Perform end-to-end testing of all features
-- [ ] Time log / weekly reflection  
+- [X] Perform end-to-end testing of all features
+- [X] Time log / weekly reflection  
 
 ---
 
@@ -138,5 +138,5 @@
 
 #### Launch & Post-Launch Enhancements  
 
-- [ ] Complete final touches
-- [ ] Time log / final project reflection  
+- [X] Complete final touches
+- [X] Time log / final project reflection  

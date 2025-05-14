@@ -1212,3 +1212,12 @@ com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized f
 [2025-05-12 22:21:37.130] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
 [2025-05-12 22:21:37.545] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
 [2025-05-12 22:21:43.544] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-13 20:05:54.283] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-13 20:05:54.823] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-13 20:06:24.271] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-13 20:06:24.769] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-13 20:06:32.059] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-13 20:26:33.077] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jaketest Email: jcskate9@live.com Name: Jake Cipri
+[2025-05-13 20:26:33.450] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jaketest
+[2025-05-13 20:27:49.198] [DEBUG] [http-nio-8080-exec-2] Auth - User info - Username: jaketest Email: jcskate9@live.com Name: Jake Cipri
+[2025-05-13 20:27:49.599] [DEBUG] [http-nio-8080-exec-2] UserDao - Updated user with username: jaketest

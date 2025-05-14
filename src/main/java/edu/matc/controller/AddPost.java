@@ -14,19 +14,30 @@ import java.io.IOException;
 import java.sql.Timestamp;
 
 /**
- * The type Add post.
+ * Servlet that handles adding a new post to the system.
  */
 @WebServlet("/addPost")
 public class AddPost extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
     private PostDao postDao;
 
+    /**
+     * Initializes the servlet and its required DAO.
+     */
     @Override
     public void init() {
         postDao = new PostDao();  // Initialize PostDao
     }
 
+    /**
+     * Handles HTTP POST requests for creating a new post.
+     *
+     * @param request  the Http Request containing form data
+     * @param response the Http Response used to redirect or forward
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Retrieve form parameters
         String postSubject = request.getParameter("title");
@@ -41,32 +52,34 @@ public class AddPost extends HttpServlet {
         if (loggedInUser == null) {
             String originalDestination = "addPost.jsp";
             response.sendRedirect("logIn?state=" + java.net.URLEncoder.encode(originalDestination, "UTF-8"));
-
             return;
         }
 
-        // Create a new Post object
+        // Create and populate a new Post object
         Post post = new Post();
         post.setPost_subject(postSubject);
         post.setPost_body(postBody);
-        post.setUser(loggedInUser); // Set the user as the logged-in user
-        post.setDate_posted(new Timestamp(System.currentTimeMillis())); // Set the current time as the post date
+        post.setUser(loggedInUser);
+        post.setDate_posted(new Timestamp(System.currentTimeMillis()));
 
-        // Insert the post into the database using the PostDao
+        // Insert the post into the database
         int postId = postDao.insert(post);
 
-        // Check if the post was created successfully
+        // If successful, forward to the view page; otherwise, redirect to retry
         if (postId > 0) {
             Post insertedPost = postDao.getById(postId);
             request.setAttribute("post", insertedPost);
             request.getRequestDispatcher("/viewPost.jsp").forward(request, response);
         } else {
-            response.sendRedirect("addPost.jsp"); // Redirect to error page if insertion failed
+            response.sendRedirect("addPost.jsp");
         }
     }
 
+    /**
+     * Cleans up any resources when the servlet is destroyed.
+     */
     @Override
     public void destroy() {
-        postDao = null;  // Cleanup resources if needed
+        postDao = null;
     }
 }

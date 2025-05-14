@@ -13,10 +13,19 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * The type Post feed.
+ * Servlet that retrieves all posts sorted by most recent and forwards to the post feed page.
  */
 @WebServlet("/postFeed")
 public class PostFeed extends HttpServlet {
+
+    /**
+     * Handles GET requests to display the post feed.
+     *
+     * @param req  the HTTP request
+     * @param resp the HTTP response used to forward to the JSP
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PostDao postDao = new PostDao();

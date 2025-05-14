@@ -11,12 +11,20 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * A simple servlet to get a list of all users.
+ * Servlet that handles searching for users by username or listing users with pagination.
  */
 @WebServlet("/searchUser")
 public class SearchUser extends HttpServlet {
     private static final int PAGE_SIZE = 25;
 
+    /**
+     * Handles GET requests to either search users by username or return a paginated list of users.
+     *
+     * @param req  the HTTP request containing search parameters or pagination info
+     * @param resp the HTTP response used to forward to the results page
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserDao userDao = new UserDao();
