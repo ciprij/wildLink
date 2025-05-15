@@ -139,4 +139,5 @@
 #### Launch & Post-Launch Enhancements  
 
 - [X] Complete final touches
+- [X] Complete project presentations
 - [X] Time log / final project reflection  

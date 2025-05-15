@@ -38,13 +38,19 @@ public class SearchUser extends HttpServlet {
             req.setAttribute("searchQuery", username);
             req.setAttribute("totalPages", 1);
             req.setAttribute("currentPage", 1);
+
+            if (users.isEmpty()) {
+                req.setAttribute("noResultsMessage", "No users found with the username: " + username);
+            }
+
         } else {
             // Paginated user view
             int page = 1;
             if (req.getParameter("page") != null) {
                 try {
                     page = Integer.parseInt(req.getParameter("page"));
-                } catch (NumberFormatException ignored) {}
+                } catch (NumberFormatException ignored) {
+                }
             }
 
             List<User> users = userDao.getAllPaged(page, PAGE_SIZE);
