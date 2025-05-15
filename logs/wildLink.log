@@ -1272,3 +1272,18 @@ com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized f
 [2025-05-14 20:00:17.585] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
 [2025-05-14 20:00:18.054] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
 [2025-05-14 20:00:23.678] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-14 20:20:24.068] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 20:20:24.551] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 20:20:52.400] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 20:20:57.186] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jaketest
+[2025-05-14 20:35:01.607] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 20:35:02.089] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 20:35:17.115] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 20:35:22.026] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jaketest
+[2025-05-14 20:48:21.477] [DEBUG] [http-nio-8080-exec-7] UserDao - Inserted new user with username: jhalpert
+[2025-05-14 20:57:39.396] [DEBUG] [http-nio-8080-exec-2] UserDao - Inserted new user with username: phalpert
+[2025-05-14 20:59:28.420] [DEBUG] [http-nio-8080-exec-8] UserDao - Updated user with username: phalpert
+[2025-05-15 17:22:26.371] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-15 17:22:26.898] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-15 17:24:07.327] [DEBUG] [http-nio-8080-exec-2] Auth - Keys loaded.
+[2025-05-15 17:24:14.107] [DEBUG] [http-nio-8080-exec-2] UserDao - Updated user with username: jcipri

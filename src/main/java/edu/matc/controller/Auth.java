@@ -104,14 +104,12 @@ public class Auth extends HttpServlet implements PropertiesLoader {
  */
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
-        String userName = null;
 
         if (authCode != null) {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse, req);
-                req.getSession().setAttribute("userName", userName);
+                validate(tokenResponse, req);  // no longer sets "userName" separately
             } catch (IOException | InterruptedException e) {
                 logger.error("Error handling token: " + e.getMessage(), e);
             }
@@ -200,7 +198,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         HashMap<String, String> parameters = new HashMap<>();
         parameters.put("grant_type", "authorization_code");
-        parameters.put("client-secret", CLIENT_SECRET);
         parameters.put("client_id", CLIENT_ID);
         parameters.put("code", authCode);
         parameters.put("redirect_uri", REDIRECT_URL);
