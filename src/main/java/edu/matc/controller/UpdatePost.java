@@ -39,6 +39,6 @@ public class UpdatePost extends HttpServlet {
             postDao.update(postToUpdate);
         }
 
-        resp.sendRedirect("postFeed.jsp");
+        resp.sendRedirect("postFeed");
     }
 }

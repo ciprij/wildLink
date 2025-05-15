@@ -22,7 +22,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Post</button>
-                <a href="postFeed.jsp" class="btn btn-secondary">Cancel</a>
+                <a href="postFeed" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
     </body>

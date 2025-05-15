@@ -30,6 +30,9 @@
             <a class="nav-link text-white" href="${pageContext.request.contextPath}/searchUser.jsp">Search User</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link text-white" href="${pageContext.request.contextPath}/profile">Profile</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" href="${pageContext.request.contextPath}/logout">Logout</a>
           </li>
         </c:otherwise>

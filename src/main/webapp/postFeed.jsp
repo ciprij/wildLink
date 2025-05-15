@@ -9,7 +9,11 @@
 
         <div class="container mt-5">
             <h1 class="mb-4 text-center">Latest Posts</h1>
-
+            <div class="text-center mb-4">
+                <a href="addPost.jsp" class="btn btn-lg btn-success">
+                    ✍️ Write a post now!
+                </a>
+            </div>
             <c:forEach var="post" items="${posts}">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">

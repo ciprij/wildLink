@@ -180,11 +180,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         String givenName = jwt.getClaim("given_name").asString();
         String familyName = jwt.getClaim("family_name").asString();
 
-        logger.debug("User info - Username: {} Email: {} Name: {} {}", userName, email, givenName, familyName);
-
         UserDao userDao = new UserDao();
         User loggedInUser = userDao.insertFromClaims(userName, email, givenName, familyName);
-        System.out.println("The logged in user is --> " + loggedInUser);
 
         HttpSession session = req.getSession();
         session.setAttribute("loggedInUser", loggedInUser);

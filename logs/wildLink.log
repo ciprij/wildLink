@@ -1228,3 +1228,47 @@ com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized f
 [2025-05-13 20:56:42.925] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jaketest
 [2025-05-13 21:00:50.838] [DEBUG] [main] UserDao - Updated user with username: JCipri
 [2025-05-13 21:00:51.361] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 18:50:28.007] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 18:50:28.504] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 18:53:09.785] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 18:53:10.530] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: joeshmoe Email: jcskate9@live.com Name: Joe Shmoe
+[2025-05-14 18:53:10.925] [DEBUG] [http-nio-8080-exec-5] UserDao - Inserted new user with username: joeshmoe
+[2025-05-14 19:17:34.672] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:17:35.177] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:17:51.919] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 19:17:52.357] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: joeshmoe Email: jcskate9@live.com Name: Joe Shmoe
+[2025-05-14 19:17:56.547] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: joeshmoe
+[2025-05-14 19:18:34.176] [DEBUG] [http-nio-8080-exec-6] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:18:35.995] [DEBUG] [http-nio-8080-exec-6] UserDao - Updated user with username: jcipri
+[2025-05-14 19:21:47.184] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:21:47.725] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:23:32.449] [DEBUG] [http-nio-8080-exec-7] Auth - Keys loaded.
+[2025-05-14 19:23:32.880] [DEBUG] [http-nio-8080-exec-7] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:23:38.730] [DEBUG] [http-nio-8080-exec-7] UserDao - Updated user with username: jcipri
+[2025-05-14 19:34:39.387] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:34:39.887] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:34:56.166] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 19:34:56.608] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:35:02.350] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-14 19:40:59.406] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:40:59.952] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:41:15.240] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 19:41:15.744] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:41:21.480] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-14 19:43:07.740] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:43:08.278] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:43:21.960] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 19:43:22.441] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:43:28.108] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri
+[2025-05-14 19:46:05.480] [DEBUG] [http-nio-8080-exec-3] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:46:07.305] [DEBUG] [http-nio-8080-exec-3] UserDao - Updated user with username: jcipri
+[2025-05-14 19:54:00.393] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 19:54:00.953] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 19:54:58.754] [DEBUG] [http-nio-8080-exec-7] Auth - Keys loaded.
+[2025-05-14 19:54:59.268] [DEBUG] [http-nio-8080-exec-7] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 19:55:04.838] [DEBUG] [http-nio-8080-exec-7] UserDao - Updated user with username: jcipri
+[2025-05-14 20:00:02.519] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-14 20:00:03.017] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
+[2025-05-14 20:00:17.585] [DEBUG] [http-nio-8080-exec-5] Auth - Keys loaded.
+[2025-05-14 20:00:18.054] [DEBUG] [http-nio-8080-exec-5] Auth - User info - Username: jcipri Email: jcipri@madisoncollege.edu Name: Jake Cipri
+[2025-05-14 20:00:23.678] [DEBUG] [http-nio-8080-exec-5] UserDao - Updated user with username: jcipri

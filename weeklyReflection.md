@@ -169,3 +169,8 @@ Tasks Completed:
 ---
 
 ### Week 16 - 
+
+Tasks Completed:
+* javadoc updated on controller classes
+* added post editing and deletion functionality
+* added Like and Comment dao tests (will NOT have Link and Comment functionality done by end of semester)
