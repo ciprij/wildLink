@@ -1291,3 +1291,5 @@ com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized f
 [2025-05-15 18:53:38.542] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
 [2025-05-15 18:54:21.586] [DEBUG] [http-nio-8080-exec-7] Auth - Keys loaded.
 [2025-05-15 18:54:27.766] [DEBUG] [http-nio-8080-exec-7] UserDao - Updated user with username: jcipri
+[2025-05-15 19:08:56.551] [DEBUG] [main] UserDao - Updated user with username: JCipri
+[2025-05-15 19:08:57.041] [DEBUG] [main] UserDao - Inserted new user with username: new.claim.user
