@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class UserDaoTest {
 
-    private UserDao userDao;;
+    private UserDao userDao;
 
     /**
      * Sets up.
