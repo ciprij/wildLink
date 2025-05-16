@@ -32,12 +32,6 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments = new ArrayList<>();
-
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Like> like = new ArrayList<>();
-
     /**
      * Instantiates a new Post.
      */
@@ -148,42 +142,6 @@ public class Post {
      */
     public void setDate_posted(Timestamp date_posted) {
         this.date_posted = date_posted;
-    }
-
-    /**
-     * Gets comments.
-     *
-     * @return the comments
-     */
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    /**
-     * Sets comments.
-     *
-     * @param comments the comments
-     */
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
-    /**
-     * Gets like.
-     *
-     * @return the like
-     */
-    public List<Like> getLike() {
-        return like;
-    }
-
-    /**
-     * Sets like.
-     *
-     * @param like the like
-     */
-    public void setLike(List<Like> like) {
-        this.like = like;
     }
 
     @Override
