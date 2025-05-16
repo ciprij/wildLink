@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Post;
 import edu.matc.entity.User;
 import edu.matc.utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
@@ -121,4 +122,30 @@ class UserDaoTest {
         assertEquals(newFirstName, result.getFirst_name());
         assertEquals(newLastName, result.getLast_name());
     }
+
+    /**
+     * Tests that a user and their posts can be deleted.
+     */
+    @Test
+    void deleteUserWithPosts_deletesPostsToo() {
+        User user = userDao.getById(1); // JCipri has 3 posts
+        assertNotNull(user);
+
+        // Make sure user has posts first
+        PostDao postDao = new PostDao();
+        List<Post> userPosts = postDao.getByPropertyEqual("user", user);
+        assertEquals(3, userPosts.size(), "User should have 3 posts");
+
+        // Manually delete posts like your servlet does
+        for (Post post : userPosts) {
+            postDao.delete(post);
+        }
+
+        // Now delete the user
+        userDao.delete(user);
+
+        assertNull(userDao.getById(1), "User should be deleted");
+        assertTrue(postDao.getByPropertyEqual("user", user).isEmpty(), "Posts should be deleted with user");
+    }
+
 }
